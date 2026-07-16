@@ -2,12 +2,14 @@
 
 <footer class="scrubhat-footer">
   <div class="scrubhat-footer__wave" aria-hidden="true">
-    <img src="{{ 'scrubhat-footer-wave.svg' | asset_url }}" alt="" loading="lazy">
+    {%- comment -%} Desktop: wave with paws baked in. Mobile: plain wave + paw strip overlay. {%- endcomment -%}
+    <img src="{{ 'scrubhat-footer-wave-paws.svg' | asset_url }}" alt="" loading="lazy" class="small-hide">
+    <img src="{{ 'scrubhat-footer-wave.svg' | asset_url }}" alt="" loading="lazy" class="medium-hide large-up-hide">
   </div>
   <img
     src="{{ 'scrubhat-hero-paws-mobile.svg' | asset_url }}"
     alt=""
-    class="scrubhat-footer__paws"
+    class="scrubhat-footer__paws medium-hide large-up-hide"
     width="105"
     height="737"
     loading="lazy"

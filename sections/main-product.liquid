@@ -211,6 +211,20 @@
                 {%- when 'custom_liquid' -%}
                   {{ block.settings.custom_liquid }}
                 {%- when 'collapsible_tab' -%}
+                  {%- comment -%}
+                    Scrub Hat Shop: the Sizing accordion is hat-specific.
+                    Skip it on pocket organisers (title or type contains "pocket").
+                  {%- endcomment -%}
+                  {%- assign sh_title = product.title | downcase -%}
+                  {%- assign sh_type = product.type | downcase -%}
+                  {%- assign sh_block_heading = block.settings.heading | downcase -%}
+                  {%- assign sh_skip_tab = false -%}
+                  {%- if sh_block_heading contains 'sizing' -%}
+                    {%- if sh_title contains 'pocket' or sh_type contains 'pocket' -%}
+                      {%- assign sh_skip_tab = true -%}
+                    {%- endif -%}
+                  {%- endif -%}
+                  {%- unless sh_skip_tab -%}
                   <div class="product__accordion accordion quick-add-hidden" {{ block.shopify_attributes }}>
                     <details id="Details-{{ block.id }}-{{ section.id }}">
                       <summary>
@@ -228,6 +242,7 @@
                       </div>
                     </details>
                   </div>
+                  {%- endunless -%}
                 {%- when 'quantity_selector' -%}
                   <div
                     id="Quantity-Form-{{ section.id }}"

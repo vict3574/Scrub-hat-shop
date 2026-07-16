@@ -1,18 +1,20 @@
 {{ 'scrubhat.css' | asset_url | stylesheet_tag }}
 
 <div class="scrubhat-testimonials">
-  {%- if section.settings.show_dog -%}
-    <img
-      src="{{ 'scrubhat-dog-peek.svg' | asset_url }}"
-      alt=""
-      class="scrubhat-testimonials__dog"
-      width="314"
-      height="387"
-      loading="lazy"
-      aria-hidden="true"
-    >
-  {%- endif -%}
-  <h2 class="scrubhat-section-title scrubhat-testimonials__heading">{{ section.settings.heading }}</h2>
+  <div class="scrubhat-testimonials__header">
+    <h2 class="scrubhat-section-title scrubhat-testimonials__heading">{{ section.settings.heading }}</h2>
+    {%- if section.settings.show_dog -%}
+      <img
+        src="{{ 'scrubhat-dog-peek.svg' | asset_url }}"
+        alt=""
+        class="scrubhat-testimonials__dog"
+        width="440"
+        height="296"
+        loading="lazy"
+        aria-hidden="true"
+      >
+    {%- endif -%}
+  </div>
   <div class="scrubhat-testimonials__track">
     {%- for block in section.blocks -%}
       <div class="scrubhat-testimonial scrubhat-testimonial--{{ block.settings.color }}" {{ block.shopify_attributes }}>
