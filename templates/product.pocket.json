@@ -1,0 +1,208 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "stars": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<img src=\"{{ 'scrubhat-stars-row.svg' | asset_url }}\" alt=\"Reviews\" class=\"scrubhat-product-stars\" width=\"167\" height=\"26\">"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "usp_icons": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'scrubhat-product-icons' %}"
+          }
+        },
+        "tab_embroidery": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Embroidery",
+            "icon": "none",
+            "content": "<p>For embroidery, buttons or satin lining options please select your hat then add the additional relevant listing to your basket.</p>"
+          }
+        },
+        "tab_shipping": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Shipping",
+            "icon": "none",
+            "content": "<p>All our hats and pockets are dispatched in 2nd class standard post. We highly recommend upgrading your shipping with tracking if you live outside the UK.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "stars",
+        "title",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "description",
+        "usp_icons",
+        "tab_embroidery",
+        "tab_shipping"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "cover",
+        "gallery_layout": "stacked",
+        "mobile_thumbnails": "hide",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "features": {
+      "type": "scrubhat-features",
+      "blocks": {
+        "feature_1": {
+          "type": "feature",
+          "settings": {
+            "icon": "brush",
+            "title": "Colourful patterns"
+          }
+        },
+        "feature_2": {
+          "type": "feature",
+          "settings": {
+            "icon": "hands",
+            "title": "Always handmade"
+          }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": {
+            "icon": "globe",
+            "title": "100% sustainable cotton"
+          }
+        },
+        "feature_4": {
+          "type": "feature",
+          "settings": {
+            "icon": "feather",
+            "title": "Comfortably lightweight"
+          }
+        },
+        "feature_5": {
+          "type": "feature",
+          "settings": {
+            "icon": "crown",
+            "title": "Suitable for all"
+          }
+        },
+        "feature_6": {
+          "type": "feature",
+          "settings": {
+            "icon": "gift",
+            "title": "Great as a gift"
+          }
+        }
+      },
+      "block_order": [
+        "feature_1",
+        "feature_2",
+        "feature_3",
+        "feature_4",
+        "feature_5",
+        "feature_6"
+      ],
+      "settings": {
+        "heading": "We care for our products, you and the planet",
+        "subtext": "- And therefor, all of our products are made with that in mind."
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h1",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": true,
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "testimonials": {
+      "type": "scrubhat-testimonials",
+      "blocks": {
+        "testimonial_1": {
+          "type": "testimonial",
+          "settings": {
+            "color": "pink",
+            "title": "Love my hats",
+            "text": "Fabulous hats, fabulous service, fabulous company. Thank you so much.",
+            "author": "Kelly"
+          }
+        },
+        "testimonial_2": {
+          "type": "testimonial",
+          "settings": {
+            "color": "mint",
+            "title": "Love the designs",
+            "text": "These are well made, comfortable scrub hats that wash nicely.",
+            "author": "Emily"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_1",
+        "testimonial_2"
+      ],
+      "settings": {
+        "heading": "Our customers says",
+        "show_dog": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "features",
+    "related-products",
+    "testimonials"
+  ]
+}

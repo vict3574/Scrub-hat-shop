@@ -1,7 +1,7 @@
 <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="70" height="70" fill="#F5F5F5"/>
-<g id="Default Product" filter="url(#filter0_dd_0_1)">
-<rect width="1201" height="4779" transform="translate(-965.582 -2387.18)" fill="white"/>
+
+<g>
+
 <g id="Group 1321314240">
 <g id="Group 1321314234">
 <g id="products-shopping-bags--Streamline-Freehand" clip-path="url(#clip0_0_1)">
@@ -29,7 +29,7 @@
 <feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_0_1" result="shape"/>
 </filter>
 <clipPath id="clip0_0_1">
-<rect width="70" height="70" fill="white"/>
+
 </clipPath>
 </defs>
 </svg>

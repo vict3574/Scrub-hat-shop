@@ -423,6 +423,7 @@ h1, h2, h3, .h0, .h1, .h2, .h3,
 .scrubhat-testimonials__dog {
   display: block;
   width: 314px;
+  height: auto;
   max-width: 34vw;
   margin: 0 auto -1px;
   position: relative;
@@ -431,7 +432,7 @@ h1, h2, h3, .h0, .h1, .h2, .h3,
 }
 .scrubhat-testimonials__heading {
   position: relative;
-  margin-top: -11rem;
+  margin-top: -13rem;
   margin-bottom: 5rem;
   z-index: 1;
 }
@@ -504,12 +505,14 @@ h1, h2, h3, .h0, .h1, .h2, .h3,
     padding-top: 6rem;
   }
   .scrubhat-testimonials__dog {
-    width: 170px;
-    max-width: 45vw;
+    width: 190px;
+    max-width: 48vw;
     left: 22%;
   }
   .scrubhat-testimonials__heading {
-    margin-top: -5rem;
+    margin-top: -8rem;
+    position: relative;
+    left: -10%;
   }
   .scrubhat-testimonial {
     padding: 3.5rem 2.5rem 3rem;
@@ -538,6 +541,16 @@ h1, h2, h3, .h0, .h1, .h2, .h3,
   width: 100%;
   height: 100%;
   display: block;
+}
+.scrubhat-footer__paws {
+  position: absolute;
+  right: 3%;
+  top: 10%;
+  height: 85%;
+  width: auto;
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 0;
 }
 .scrubhat-footer__inner {
   position: relative;
@@ -741,13 +754,46 @@ variant-selects .product-form__input--pill input[type='radio'] + label,
   font-size: 1.2rem;
   letter-spacing: 0.03em;
 }
-/* quantity picker */
+/* quantity picker: borderless, rounded, with green blob accents peeking out behind */
 .quantity {
   border-radius: 15px;
-  border: 1px solid #d0d0d0;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+}
+.quantity:before,
+.quantity:after {
+  content: none;
 }
 .quantity__input {
   font-family: var(--sh-font-body);
+  color: rgba(18, 18, 18, 0.75);
+}
+.quantity__button {
+  color: var(--sh-text);
+}
+.product-form__input--quantity {
+  position: relative;
+}
+.product-form__input--quantity::before {
+  content: '';
+  position: absolute;
+  width: 42px;
+  height: 41px;
+  left: -4px;
+  bottom: -16px;
+  background: url('scrubhat-accent-left.svg') no-repeat center / contain;
+  z-index: -1;
+}
+.product-form__input--quantity::after {
+  content: '';
+  position: absolute;
+  width: 48px;
+  height: 45px;
+  left: 118px;
+  bottom: -18px;
+  background: url('scrubhat-accent-right.svg') no-repeat center / contain;
+  z-index: -1;
 }
 /* product icon list */
 .scrubhat-product-icons {
