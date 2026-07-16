@@ -24,12 +24,17 @@
           height="62"
           loading="lazy"
         >
+        {%- if block.settings.color == 'mint' -%}
+          {%- assign quote_asset = 'scrubhat-quote-mint.svg' -%}
+        {%- else -%}
+          {%- assign quote_asset = 'scrubhat-quote-pink.svg' -%}
+        {%- endif -%}
         <img
-          src="{{ 'scrubhat-quote.svg' | asset_url }}"
+          src="{{ quote_asset | asset_url }}"
           alt=""
           class="scrubhat-testimonial__quote"
-          width="28"
-          height="28"
+          width="31"
+          height="29"
           aria-hidden="true"
         >
         {%- if block.settings.title != blank -%}

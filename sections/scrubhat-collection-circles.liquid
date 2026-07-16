@@ -5,9 +5,10 @@
     <h2 class="scrubhat-section-title">{{ section.settings.heading }}</h2>
   {%- endif -%}
   <div class="scrubhat-circles__grid">
-    {%- assign blobs = 'scrubhat-blob-1.svg,scrubhat-blob-2.svg,scrubhat-blob-3.svg,scrubhat-blob-4.svg' | split: ',' -%}
+    {%- assign blobs = 'scrubhat-circle-blob-1.svg,scrubhat-circle-blob-2.svg,scrubhat-circle-blob-3.svg' | split: ',' -%}
+    {%- assign fallbacks = 'scrubhat-circle-1.png,scrubhat-circle-2.png,scrubhat-circle-3.png' | split: ',' -%}
     {%- for block in section.blocks -%}
-      {%- assign blob_index = forloop.index0 | modulo: 4 -%}
+      {%- assign blob_index = forloop.index0 | modulo: 3 -%}
       {%- assign collection = block.settings.collection -%}
       {%- assign title = block.settings.title | default: collection.title -%}
       {%- assign image = block.settings.image | default: collection.featured_image -%}
@@ -18,8 +19,8 @@
             src="{{ blobs[blob_index] | asset_url }}"
             alt=""
             class="scrubhat-circles__blob"
-            width="200"
-            height="160"
+            width="258"
+            height="305"
             aria-hidden="true"
           >
           {%- if image != blank -%}
@@ -29,7 +30,14 @@
               | image_tag: class: 'scrubhat-circles__image', loading: 'lazy', alt: title
             }}
           {%- else -%}
-            <span class="scrubhat-circles__image" style="background: var(--sh-mint); display: block;"></span>
+            <img
+              src="{{ fallbacks[blob_index] | asset_url }}"
+              alt="{{ title | escape }}"
+              class="scrubhat-circles__image"
+              width="300"
+              height="300"
+              loading="lazy"
+            >
           {%- endif -%}
         </a>
         <a href="{{ collection.url | default: '#' }}" class="button">

@@ -183,19 +183,15 @@ h1, h2, h3, .h0, .h1, .h2, .h3,
   position: relative;
   display: inline-block;
 }
-.scrubhat-hero__cta .scrubhat-sparkle {
+.scrubhat-hero__sparkles {
   position: absolute;
-  width: 16px;
-  height: 42px;
+  left: 50%;
   top: 50%;
-  transform: translateY(-50%);
-}
-.scrubhat-hero__cta .scrubhat-sparkle--left {
-  left: -32px;
-  transform: translateY(-50%) scaleX(-1);
-}
-.scrubhat-hero__cta .scrubhat-sparkle--right {
-  right: -32px;
+  transform: translate(-50%, -50%);
+  width: 204px;
+  max-width: none;
+  height: auto;
+  pointer-events: none;
 }
 .scrubhat-hero__image {
   justify-self: end;
@@ -213,6 +209,10 @@ h1, h2, h3, .h0, .h1, .h2, .h3,
   .scrubhat-hero__box {
     grid-template-columns: 1fr;
     padding: 4rem 2.5rem;
+    background-image: url('scrubhat-hero-paws-mobile.svg') !important;
+    background-size: 105px auto;
+    background-repeat: repeat;
+    background-position: 0 0;
   }
   .scrubhat-hero__heading {
     font-size: 3.6rem;
@@ -252,21 +252,23 @@ h1, h2, h3, .h0, .h1, .h2, .h3,
   display: block;
   position: relative;
   width: 100%;
-  padding-bottom: 78%;
+  padding-bottom: 90%;
   margin-bottom: 2rem;
 }
 .scrubhat-circles__blob {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 96%;
+  height: 118%;
   object-fit: contain;
   z-index: 0;
 }
 .scrubhat-circles__image {
   position: absolute;
   left: 50%;
-  top: 46%;
+  top: 50%;
   transform: translate(-50%, -50%);
   width: 150px;
   height: 150px;
@@ -274,6 +276,7 @@ h1, h2, h3, .h0, .h1, .h2, .h3,
   object-fit: cover;
   border: 2px solid var(--sh-ink);
   z-index: 1;
+  background: #fff;
 }
 
 /* ---------- Features (We care / quality icons) ---------- */
@@ -468,7 +471,8 @@ h1, h2, h3, .h0, .h1, .h2, .h3,
   margin: 0 auto 3rem;
 }
 .scrubhat-testimonial__quote {
-  height: 28px;
+  width: 31px;
+  height: 29px;
   margin-bottom: 1.6rem;
 }
 .scrubhat-testimonial__title {

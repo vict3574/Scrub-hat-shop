@@ -8,9 +8,9 @@
     <p class="scrubhat-section-subtitle">{{ section.settings.subtext }}</p>
   {%- endif -%}
   <div class="scrubhat-features__grid">
-    {%- assign blobs = 'scrubhat-blob-1.svg,scrubhat-blob-2.svg,scrubhat-blob-3.svg,scrubhat-blob-4.svg,scrubhat-blob-2.svg,scrubhat-blob-3.svg' | split: ',' -%}
+    {%- assign blobs = 'scrubhat-feature-blob-4.svg,scrubhat-feature-blob-1.svg,scrubhat-feature-blob-2.svg,scrubhat-feature-blob-3.svg' | split: ',' -%}
     {%- for block in section.blocks -%}
-      {%- assign blob_index = forloop.index0 | modulo: 6 -%}
+      {%- assign blob_index = forloop.index0 | modulo: 4 -%}
       <div class="scrubhat-features__item" {{ block.shopify_attributes }}>
         <div class="scrubhat-features__icon-wrap">
           <img

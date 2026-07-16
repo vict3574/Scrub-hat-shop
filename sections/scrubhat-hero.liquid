@@ -13,24 +13,16 @@
       {%- if section.settings.button_label != blank -%}
         <div class="scrubhat-hero__cta">
           <img
-            src="{{ 'scrubhat-sparkle.svg' | asset_url }}"
+            src="{{ 'scrubhat-sparkles.svg' | asset_url }}"
             alt=""
-            class="scrubhat-sparkle scrubhat-sparkle--left"
-            width="16"
-            height="42"
+            class="scrubhat-hero__sparkles"
+            width="204"
+            height="53"
             aria-hidden="true"
           >
           <a href="{{ section.settings.button_link | default: routes.all_products_collection_url }}" class="button">
             {{ section.settings.button_label }}
           </a>
-          <img
-            src="{{ 'scrubhat-sparkle.svg' | asset_url }}"
-            alt=""
-            class="scrubhat-sparkle scrubhat-sparkle--right"
-            width="16"
-            height="42"
-            aria-hidden="true"
-          >
         </div>
       {%- endif -%}
     </div>
