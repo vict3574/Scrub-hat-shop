@@ -172,7 +172,13 @@
             }}
           </div>
         {%- else -%}
-          <span class="h2">{{ shop.name }}</span>
+          <img
+            src="{{ 'scrubhat-logo.svg' | asset_url }}"
+            alt="{{ shop.name | escape }}"
+            class="header__heading-logo"
+            width="143"
+            height="38"
+          >
         {%- endif -%}
       </a>
       {%- if request.page_type == 'index' -%}
@@ -215,7 +221,13 @@
             }}
           </div>
         {%- else -%}
-          <span class="h2">{{ shop.name }}</span>
+          <img
+            src="{{ 'scrubhat-logo.svg' | asset_url }}"
+            alt="{{ shop.name | escape }}"
+            class="header__heading-logo"
+            width="143"
+            height="38"
+          >
         {%- endif -%}
       </a>
       {%- if request.page_type == 'index' -%}

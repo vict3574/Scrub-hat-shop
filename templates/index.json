@@ -1,75 +1,116 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "hero": {
+      "type": "scrubhat-hero",
+      "settings": {
+        "heading": "Browse our <em>colourfull</em> selection of Scrub hats",
+        "subtext": "- Or you can choose your own fabric",
+        "button_label": "Browse",
+        "button_link": "shopify:\/\/collections\/all"
+      }
+    },
+    "collection_circles": {
+      "type": "scrubhat-collection-circles",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "circle_1": {
+          "type": "collection",
           "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
+            "title": "Scrub hats",
+            "button_label": "Browse"
           }
         },
-        "button": {
-          "type": "buttons",
+        "circle_2": {
+          "type": "collection",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "title": "Pockets",
+            "button_label": "Browse"
+          }
+        },
+        "circle_3": {
+          "type": "collection",
+          "settings": {
+            "title": "Custom",
+            "button_label": "Browse"
           }
         }
       },
-      "block_order": [
-        "heading",
-        "button"
-      ],
+      "block_order": ["circle_1", "circle_2", "circle_3"],
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "heading": "Browse our collections and fabrics!"
+      }
+    },
+    "features": {
+      "type": "scrubhat-features",
+      "blocks": {
+        "feature_1": { "type": "feature", "settings": { "icon": "brush", "title": "Colourful patterns" } },
+        "feature_2": { "type": "feature", "settings": { "icon": "hands", "title": "Always handmade" } },
+        "feature_3": { "type": "feature", "settings": { "icon": "globe", "title": "100% sustainable cotton" } },
+        "feature_4": { "type": "feature", "settings": { "icon": "feather", "title": "Comfortably lightweight" } },
+        "feature_5": { "type": "feature", "settings": { "icon": "crown", "title": "Suitable for all" } },
+        "feature_6": { "type": "feature", "settings": { "icon": "gift", "title": "Great as a gift" } }
+      },
+      "block_order": ["feature_1", "feature_2", "feature_3", "feature_4", "feature_5", "feature_6"],
+      "settings": {
+        "heading": "We care for our products, you and the planet",
+        "subtext": "- And therefor, all of our products are made with that in mind."
       }
     },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured products",
+        "title": "",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
         "description_style": "body",
         "collection": "all",
-        "products_to_show": 8,
+        "products_to_show": 4,
         "columns_desktop": 4,
         "color_scheme": "scheme-1",
         "full_width": false,
-        "show_view_all": true,
+        "show_view_all": false,
         "view_all_style": "solid",
         "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
+        "swipe_on_mobile": true,
+        "image_ratio": "portrait",
         "image_shape": "default",
-        "show_secondary_image": true,
+        "show_secondary_image": false,
         "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
+        "show_rating": true,
+        "quick_add": "standard",
         "columns_mobile": "2",
-        "padding_top": 44,
+        "padding_top": 24,
         "padding_bottom": 36
+      }
+    },
+    "testimonials": {
+      "type": "scrubhat-testimonials",
+      "blocks": {
+        "testimonial_1": {
+          "type": "testimonial",
+          "settings": {
+            "color": "pink",
+            "title": "Love my hats",
+            "text": "Fabulous hats, fabulous service, fabulous company. Thank you so much.",
+            "author": "Kelly"
+          }
+        },
+        "testimonial_2": {
+          "type": "testimonial",
+          "settings": {
+            "color": "mint",
+            "title": "Love the designs",
+            "text": "These are well made, comfortable scrub hats that wash nicely.",
+            "author": "Emily"
+          }
+        }
+      },
+      "block_order": ["testimonial_1", "testimonial_2"],
+      "settings": {
+        "heading": "Our customers say",
+        "show_dog": true
       }
     }
   },
-  "order": [
-    "image_banner",
-    "featured_collection"
-  ]
+  "order": ["hero", "collection_circles", "features", "featured_collection", "testimonials"]
 }

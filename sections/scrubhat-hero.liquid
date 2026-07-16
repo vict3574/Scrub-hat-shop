@@ -1,0 +1,96 @@
+{{ 'scrubhat.css' | asset_url | stylesheet_tag }}
+
+<div class="scrubhat-hero section-{{ section.id }}-padding">
+  <div
+    class="scrubhat-hero__box"
+    style="--sh-paw-url: url('{{ 'scrubhat-paw-outline.svg' | asset_url }}'), url('{{ 'scrubhat-paw-outline.svg' | asset_url }}');"
+  >
+    <div class="scrubhat-hero__content">
+      <h1 class="scrubhat-hero__heading">{{ section.settings.heading }}</h1>
+      {%- if section.settings.subtext != blank -%}
+        <p class="scrubhat-hero__subtext">{{ section.settings.subtext }}</p>
+      {%- endif -%}
+      {%- if section.settings.button_label != blank -%}
+        <div class="scrubhat-hero__cta">
+          <img
+            src="{{ 'scrubhat-sparkle.svg' | asset_url }}"
+            alt=""
+            class="scrubhat-sparkle scrubhat-sparkle--left"
+            width="16"
+            height="42"
+            aria-hidden="true"
+          >
+          <a href="{{ section.settings.button_link | default: routes.all_products_collection_url }}" class="button">
+            {{ section.settings.button_label }}
+          </a>
+          <img
+            src="{{ 'scrubhat-sparkle.svg' | asset_url }}"
+            alt=""
+            class="scrubhat-sparkle scrubhat-sparkle--right"
+            width="16"
+            height="42"
+            aria-hidden="true"
+          >
+        </div>
+      {%- endif -%}
+    </div>
+    <div class="scrubhat-hero__image">
+      {%- if section.settings.image != blank -%}
+        {{ section.settings.image | image_url: width: 800 | image_tag: loading: 'eager', alt: section.settings.image.alt }}
+      {%- else -%}
+        <img
+          src="{{ 'scrubhat-hero-dog.svg' | asset_url }}"
+          alt="{{ shop.name | escape }}"
+          width="361"
+          height="461"
+          loading="eager"
+        >
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Scrubhat Hero",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "info": "Use italics for the highlighted word",
+      "default": "Browse our <em>colourfull</em> selection of Scrub hats"
+    },
+    {
+      "type": "text",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "- Or you can choose your own fabric"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Browse"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "Optional. Defaults to the dog illustration."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scrubhat Hero"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,131 @@
+{{ 'scrubhat.css' | asset_url | stylesheet_tag }}
+
+<div class="scrubhat-testimonials">
+  {%- if section.settings.show_dog -%}
+    <img
+      src="{{ 'scrubhat-dog-peek.svg' | asset_url }}"
+      alt=""
+      class="scrubhat-testimonials__dog"
+      width="314"
+      height="387"
+      loading="lazy"
+      aria-hidden="true"
+    >
+  {%- endif -%}
+  <h2 class="scrubhat-section-title scrubhat-testimonials__heading">{{ section.settings.heading }}</h2>
+  <div class="scrubhat-testimonials__track">
+    {%- for block in section.blocks -%}
+      <div class="scrubhat-testimonial scrubhat-testimonial--{{ block.settings.color }}" {{ block.shopify_attributes }}>
+        <img
+          src="{{ 'scrubhat-testimonial-stars.svg' | asset_url }}"
+          alt="5 star review"
+          class="scrubhat-testimonial__stars"
+          width="310"
+          height="62"
+          loading="lazy"
+        >
+        <img
+          src="{{ 'scrubhat-quote.svg' | asset_url }}"
+          alt=""
+          class="scrubhat-testimonial__quote"
+          width="28"
+          height="28"
+          aria-hidden="true"
+        >
+        {%- if block.settings.title != blank -%}
+          <h3 class="scrubhat-testimonial__title">{{ block.settings.title }}</h3>
+        {%- endif -%}
+        {%- if block.settings.text != blank -%}
+          <p class="scrubhat-testimonial__text">{{ block.settings.text }}</p>
+        {%- endif -%}
+        {%- if block.settings.author != blank -%}
+          <p class="scrubhat-testimonial__author">{{ block.settings.author }}</p>
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Scrubhat Testimonials",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Our customers say"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dog",
+      "label": "Show dog illustration",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "select",
+          "id": "color",
+          "label": "Card colour",
+          "options": [
+            { "value": "pink", "label": "Pink" },
+            { "value": "mint", "label": "Mint" }
+          ],
+          "default": "pink"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Love my hats"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Quote",
+          "default": "Fabulous hats, fabulous service, fabulous company. Thank you so much."
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author",
+          "default": "Kelly"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Scrubhat Testimonials",
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "color": "pink",
+            "title": "Love my hats",
+            "text": "Fabulous hats, fabulous service, fabulous company. Thank you so much.",
+            "author": "Kelly"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "color": "mint",
+            "title": "Love the designs",
+            "text": "These are well made, comfortable scrub hats that wash nicely.",
+            "author": "Emily"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

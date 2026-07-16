@@ -1,0 +1,802 @@
+/* ==========================================================================
+   The Scrub Hat Shop — custom design layer on top of Dawn
+   Fonts: Jua (headings/buttons), Fredoka (body), Montserrat (footer)
+   ========================================================================== */
+
+:root {
+  --sh-mint: #b9e3de;
+  --sh-mint-light: #d3f5f1;
+  --sh-pink: #ffe6fe;
+  --sh-cream: #ffffe9;
+  --sh-ink: #232323;
+  --sh-text: #121212;
+  --sh-accent: #7397a7;
+  --sh-footer-green: #43786c;
+  --sh-badge-blue: #e3f9ff;
+  --sh-purple: #5c34e6;
+  --sh-radius: 20px;
+  --sh-font-heading: 'Jua', 'Assistant', sans-serif;
+  --sh-font-body: 'Fredoka', 'Assistant', sans-serif;
+  --sh-font-footer: 'Montserrat', sans-serif;
+}
+
+/* ---------- Global typography ---------- */
+body,
+.price,
+.product__text,
+.facets,
+.rte {
+  font-family: var(--sh-font-body);
+}
+
+h1, h2, h3, .h0, .h1, .h2, .h3,
+.header__heading,
+.product__title > *,
+.collection-hero__title,
+.title {
+  font-family: var(--sh-font-heading) !important;
+  font-weight: 400;
+  color: var(--sh-text);
+  letter-spacing: -0.04em;
+}
+
+.header__menu-item span {
+  font-family: var(--sh-font-body);
+  font-weight: 500;
+  color: var(--sh-text);
+}
+
+/* ---------- Buttons: cream with hard offset shadow ---------- */
+.button:not(.shopify-payment-button__button):not(.scrubhat-newsletter__submit),
+.quick-add__submit,
+.customer button {
+  font-family: var(--sh-font-heading);
+  font-weight: 400;
+  font-size: 1.8rem;
+  color: var(--sh-ink);
+  background: var(--sh-cream);
+  border: 2px solid var(--sh-ink);
+  border-radius: 5px;
+  box-shadow: 3px 3.5px 0 0 var(--sh-ink);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  --border-opacity: 0;
+}
+.button:not(.shopify-payment-button__button):hover,
+.quick-add__submit:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1.5px 0 0 var(--sh-ink);
+}
+.button:not(.shopify-payment-button__button)::after,
+.quick-add__submit::after {
+  box-shadow: none;
+}
+.button--secondary {
+  --color-button: 255, 255, 233;
+}
+
+/* Product form: Add to cart mint, Buy-with purple */
+.product-form__submit {
+  background: var(--sh-mint-light);
+}
+.shopify-payment-button__button--unbranded,
+.shopify-payment-button__button {
+  font-family: var(--sh-font-heading) !important;
+  border: 2px solid var(--sh-ink) !important;
+  border-radius: 5px !important;
+  box-shadow: 3px 3.5px 0 0 var(--sh-ink);
+  overflow: visible !important;
+}
+
+/* ---------- Header ---------- */
+.header-wrapper {
+  background: #fff;
+}
+.header__icon .icon {
+  width: 2.2rem;
+  height: 2.2rem;
+}
+
+/* ---------- Section headings ---------- */
+.scrubhat-section-title {
+  font-family: var(--sh-font-heading);
+  font-size: 4rem;
+  letter-spacing: -0.05em;
+  text-align: center;
+  color: var(--sh-text);
+  margin: 0 0 1rem;
+}
+@media screen and (max-width: 749px) {
+  .scrubhat-section-title {
+    font-size: 2.8rem;
+  }
+}
+.scrubhat-section-subtitle {
+  font-family: var(--sh-font-body);
+  font-size: 1.6rem;
+  text-align: center;
+  color: var(--sh-text);
+  margin: 0 0 3rem;
+}
+
+/* ---------- Hero ---------- */
+.scrubhat-hero {
+  padding: 0 1.5rem;
+}
+.scrubhat-hero__box {
+  position: relative;
+  max-width: var(--page-width);
+  margin: 0 auto;
+  background-color: var(--sh-mint);
+  background-image: var(--sh-paw-url);
+  background-size: 76px 76px, 76px 76px;
+  background-position: 0 0, 52px 60px;
+  background-repeat: repeat, repeat;
+  border-radius: var(--sh-radius);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  gap: 2rem;
+  padding: 6rem 7rem;
+  min-height: 480px;
+}
+.scrubhat-hero__heading {
+  font-family: var(--sh-font-heading);
+  font-size: 5.4rem;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: #333;
+  margin: 0 0 2rem;
+}
+.scrubhat-hero__heading em,
+.scrubhat-hero__heading .accent {
+  font-style: normal;
+  color: var(--sh-accent);
+}
+.scrubhat-hero__subtext {
+  font-family: var(--sh-font-body);
+  font-weight: 500;
+  font-size: 2rem;
+  letter-spacing: -0.03em;
+  color: #333;
+  margin: 0 0 3rem;
+}
+.scrubhat-hero__cta {
+  position: relative;
+  display: inline-block;
+}
+.scrubhat-hero__cta .scrubhat-sparkle {
+  position: absolute;
+  width: 16px;
+  height: 42px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.scrubhat-hero__cta .scrubhat-sparkle--left {
+  left: -32px;
+  transform: translateY(-50%) scaleX(-1);
+}
+.scrubhat-hero__cta .scrubhat-sparkle--right {
+  right: -32px;
+}
+.scrubhat-hero__image {
+  justify-self: end;
+  align-self: end;
+  max-width: 361px;
+  width: 100%;
+}
+.scrubhat-hero__image img,
+.scrubhat-hero__image svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+@media screen and (max-width: 749px) {
+  .scrubhat-hero__box {
+    grid-template-columns: 1fr;
+    padding: 4rem 2.5rem;
+  }
+  .scrubhat-hero__heading {
+    font-size: 3.6rem;
+  }
+  .scrubhat-hero__image {
+    justify-self: center;
+    max-width: 260px;
+  }
+}
+
+/* ---------- Collection circles ---------- */
+.scrubhat-circles {
+  padding: 6rem 1.5rem 4rem;
+  max-width: var(--page-width);
+  margin: 0 auto;
+}
+.scrubhat-circles__grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6rem;
+  margin-top: 4rem;
+}
+.scrubhat-circles__item {
+  position: relative;
+  text-align: center;
+  width: 260px;
+}
+.scrubhat-circles__title {
+  font-family: var(--sh-font-heading);
+  font-size: 3rem;
+  letter-spacing: -0.04em;
+  color: var(--sh-text);
+  margin: 0 0 1.5rem;
+}
+.scrubhat-circles__media {
+  position: relative;
+  width: 100%;
+  padding-bottom: 78%;
+  margin-bottom: 2rem;
+}
+.scrubhat-circles__blob {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 0;
+}
+.scrubhat-circles__image {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--sh-ink);
+  z-index: 1;
+}
+
+/* ---------- Features (We care / quality icons) ---------- */
+.scrubhat-features {
+  padding: 6rem 1.5rem;
+  max-width: var(--page-width);
+  margin: 0 auto;
+}
+.scrubhat-features__grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem 2rem;
+  margin-top: 4rem;
+}
+.scrubhat-features__item {
+  width: 150px;
+  text-align: center;
+}
+.scrubhat-features__icon-wrap {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 1.2rem;
+}
+.scrubhat-features__blob {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.scrubhat-features__icon {
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  width: 62px;
+  height: 62px;
+  object-fit: contain;
+}
+.scrubhat-features__label {
+  font-family: var(--sh-font-body);
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1.25;
+  color: var(--sh-text);
+  margin: 0;
+}
+
+/* ---------- Product cards (Dawn card restyle) ---------- */
+.card--card,
+.card--standard .card__inner {
+  border-radius: var(--sh-radius);
+}
+.card__inner .card__media,
+.card--card .card__media,
+.card--standard .card__media img {
+  border-radius: var(--sh-radius);
+}
+.card__heading {
+  font-family: var(--sh-font-body) !important;
+  font-weight: 400;
+  font-size: 1.4rem !important;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+.card__heading .full-unstyled-link {
+  color: var(--sh-text);
+}
+.card-information {
+  text-align: center;
+  width: 100%;
+}
+.card-information .price {
+  font-family: var(--sh-font-body);
+  font-weight: 600;
+  font-size: 1.8rem;
+  letter-spacing: 0.04em;
+  color: var(--sh-text);
+  justify-content: center;
+}
+/* Overlay quick-add button on the image */
+.card-wrapper {
+  position: relative;
+}
+.quick-add {
+  position: relative;
+  z-index: 2;
+  margin: -7rem auto 2.4rem;
+  width: max-content;
+  min-width: 12.5rem;
+}
+@supports (width: 1cqw) {
+  .card-wrapper {
+    container-type: inline-size;
+  }
+  /* card image is portrait (125% of width): pin the button just above its bottom edge */
+  .quick-add {
+    position: absolute;
+    top: calc(125cqw - 6.8rem);
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+  }
+}
+.quick-add__submit {
+  min-height: 4.4rem;
+  padding: 0 2rem;
+}
+/* rating as badge on the image top-left corner */
+.card-wrapper .rating {
+  position: absolute;
+  top: 1.8rem;
+  left: 2rem;
+  z-index: 2;
+  margin: 0;
+  background: var(--sh-badge-blue);
+  border-radius: 5px;
+  padding: 0.6rem 1rem;
+}
+/* Rating as a badge in the image corner */
+.card__badge.scrubhat-rating-badge,
+.card .rating {
+  z-index: 3;
+}
+
+/* ---------- Testimonials ---------- */
+.scrubhat-testimonials {
+  position: relative;
+  padding: 10rem 0 6rem;
+  overflow: hidden;
+}
+.scrubhat-testimonials__dog {
+  display: block;
+  width: 314px;
+  max-width: 40vw;
+  margin: 0 auto -1px;
+  position: relative;
+  left: 12%;
+}
+.scrubhat-testimonials__heading {
+  position: relative;
+  margin-top: -14rem;
+  margin-bottom: 5rem;
+}
+.scrubhat-testimonials__track {
+  display: flex;
+  justify-content: center;
+  gap: 3.6rem;
+  padding: 0 1.5rem;
+}
+.scrubhat-testimonial {
+  width: 481px;
+  max-width: 90vw;
+  border-radius: var(--sh-radius);
+  padding: 5rem 4.5rem 4rem;
+  flex-shrink: 0;
+}
+.scrubhat-testimonial--pink { background: var(--sh-pink); }
+.scrubhat-testimonial--mint { background: var(--sh-mint-light); }
+.scrubhat-testimonial__stars {
+  display: block;
+  width: 310px;
+  max-width: 100%;
+  margin: 0 auto 3rem;
+}
+.scrubhat-testimonial__quote {
+  height: 28px;
+  margin-bottom: 1.6rem;
+}
+.scrubhat-testimonial__title {
+  font-family: var(--sh-font-body);
+  font-weight: 600;
+  font-size: 2.4rem;
+  letter-spacing: 0.02em;
+  color: var(--sh-text);
+  margin: 0 0 1rem;
+}
+.scrubhat-testimonial__text {
+  font-family: var(--sh-font-body);
+  font-size: 1.8rem;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--sh-text);
+  margin: 0 0 2rem;
+  max-width: 285px;
+}
+.scrubhat-testimonial__author {
+  font-family: var(--sh-font-heading);
+  font-size: 3rem;
+  text-align: right;
+  color: var(--sh-text);
+  margin: 0;
+}
+/* peeking cards at the viewport edges */
+.scrubhat-testimonials::before,
+.scrubhat-testimonials::after {
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 414px;
+  bottom: 6rem;
+  border-radius: 0 var(--sh-radius) var(--sh-radius) 0;
+}
+.scrubhat-testimonials::before {
+  left: 0;
+  background: var(--sh-mint-light);
+}
+.scrubhat-testimonials::after {
+  right: 0;
+  border-radius: var(--sh-radius) 0 0 var(--sh-radius);
+  background: var(--sh-pink);
+}
+@media screen and (max-width: 989px) {
+  .scrubhat-testimonials__track {
+    flex-wrap: wrap;
+  }
+  .scrubhat-testimonials::before,
+  .scrubhat-testimonials::after {
+    display: none;
+  }
+}
+
+/* ---------- Footer ---------- */
+.scrubhat-footer {
+  position: relative;
+  margin-top: 8rem;
+  color: var(--sh-footer-green);
+  font-family: var(--sh-font-footer);
+}
+.scrubhat-footer__wave {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.scrubhat-footer__wave svg,
+.scrubhat-footer__wave img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.scrubhat-footer__inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: 0 4rem 3rem;
+}
+.scrubhat-footer__badge {
+  width: 120px;
+  height: 120px;
+  display: block;
+  margin-bottom: 8rem;
+}
+.scrubhat-footer__top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 3rem;
+  align-items: flex-start;
+}
+.scrubhat-footer__contact {
+  max-width: 320px;
+}
+.scrubhat-footer__contact-row {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+.scrubhat-footer__contact-row img {
+  width: 22px;
+  height: 18px;
+  margin-top: 2px;
+}
+.scrubhat-footer__email {
+  font-weight: 700;
+  font-size: 1.6rem;
+  margin: 0;
+}
+.scrubhat-footer__note {
+  font-size: 1.2rem;
+  margin: 0.2rem 0 0;
+}
+.scrubhat-footer__social {
+  display: flex;
+  gap: 1.4rem;
+  margin-top: 2.4rem;
+}
+.scrubhat-footer__social img,
+.scrubhat-footer__social svg {
+  width: 22px;
+  height: 22px;
+}
+.scrubhat-footer__newsletter {
+  max-width: 470px;
+  text-align: right;
+  margin-left: auto;
+}
+.scrubhat-footer__newsletter h2 {
+  font-family: var(--sh-font-footer) !important;
+  font-weight: 700;
+  font-size: 3rem;
+  color: var(--sh-footer-green);
+  letter-spacing: 0;
+  margin: 0 0 1rem;
+}
+.scrubhat-footer__newsletter p {
+  font-size: 1.6rem;
+  line-height: 1.3;
+  margin: 0 0 2rem;
+}
+.scrubhat-newsletter__form {
+  position: relative;
+  display: flex;
+}
+.scrubhat-newsletter__input {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #cacaca;
+  border-radius: 10px;
+  padding: 1.2rem 6rem 1.2rem 1.6rem;
+  font-family: var(--sh-font-footer);
+  font-size: 1.4rem;
+  color: var(--sh-text);
+}
+.scrubhat-newsletter__input::placeholder {
+  color: #9b9b9b;
+}
+.scrubhat-newsletter__submit {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--sh-footer-green);
+  border: 0;
+  border-radius: 8px;
+  width: 42px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.scrubhat-newsletter__submit img {
+  width: 16px;
+  height: 12px;
+}
+.scrubhat-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem 8rem;
+  margin-top: 6rem;
+  font-size: 1.4rem;
+}
+.scrubhat-footer__bottom a,
+.scrubhat-footer__bottom p {
+  color: var(--sh-footer-green);
+  text-decoration: underline;
+  line-height: 24px;
+  margin: 0;
+  display: block;
+}
+.scrubhat-footer__payment {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: flex-end;
+  margin-left: auto;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.scrubhat-footer__payment .list-payment__item svg,
+.scrubhat-footer__payment svg {
+  border-radius: 5px;
+  background: #fff;
+}
+@media screen and (max-width: 749px) {
+  .scrubhat-footer__inner {
+    padding: 0 2rem 3rem;
+  }
+  .scrubhat-footer__newsletter {
+    text-align: left;
+    margin-left: 0;
+  }
+  .scrubhat-footer__badge {
+    margin-bottom: 4rem;
+  }
+}
+
+/* ---------- Collection page ---------- */
+.collection-hero__title {
+  font-size: 4rem !important;
+}
+.facets__form .facet-checkbox,
+.facets__summary-label,
+.facet-filters__label,
+.mobile-facets__open span,
+.facets__disclosure summary span,
+.select__select,
+.product-count__text {
+  font-family: var(--sh-font-body);
+}
+
+/* ---------- Product page ---------- */
+.product__title h1 {
+  font-size: 3.6rem;
+}
+.product__media,
+.product__media img,
+.product-media-container {
+  border-radius: var(--sh-radius);
+  overflow: hidden;
+}
+.price--large {
+  font-family: var(--sh-font-body);
+  font-size: 2rem;
+  font-weight: 400;
+}
+/* variant pills */
+variant-selects .product-form__input--pill input[type='radio'] + label,
+.product-form__input--pill label {
+  font-family: var(--sh-font-body);
+  font-size: 1.4rem;
+  letter-spacing: 0.03em;
+  background: #f8f8f8;
+  border: 0;
+  border-radius: 99px;
+  box-shadow: none;
+  padding: 0.8rem 1.2rem;
+}
+.product-form__input--pill input[type='radio']:checked + label {
+  background: var(--sh-pink);
+  color: var(--sh-ink);
+  box-shadow: none;
+}
+.product-form__input--pill input[type='radio'].disabled + label,
+.product-form__input--pill .variant-option-unavailable {
+  text-decoration: line-through;
+}
+.form__label {
+  font-family: var(--sh-font-body);
+  font-size: 1.2rem;
+  letter-spacing: 0.03em;
+}
+/* quantity picker */
+.quantity {
+  border-radius: 15px;
+  border: 1px solid #d0d0d0;
+}
+.quantity__input {
+  font-family: var(--sh-font-body);
+}
+/* product icon list */
+.scrubhat-product-icons {
+  margin: 2.4rem 0;
+}
+.scrubhat-product-icons__row {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 1.8rem;
+}
+.scrubhat-product-icons__row img {
+  width: 30px;
+  height: 34px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.scrubhat-product-icons__row p {
+  font-family: var(--sh-font-body);
+  font-size: 1.3rem;
+  margin: 0;
+  align-self: center;
+}
+.scrubhat-product-icons__note {
+  font-family: var(--sh-font-body);
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin-top: 2rem;
+}
+.scrubhat-product-stars {
+  width: 167px;
+  height: auto;
+  display: block;
+  margin-bottom: 0.6rem;
+}
+/* accordions */
+.product__accordion .accordion__title {
+  font-family: var(--sh-font-body);
+  font-size: 1.5rem;
+}
+.accordion__content {
+  font-family: var(--sh-font-body);
+  font-size: 1.3rem;
+}
+/* add-ons promo card under gallery */
+.scrubhat-addons-promo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.4rem;
+  margin-top: 2.4rem;
+}
+.scrubhat-addons-promo__card {
+  background: var(--sh-badge-blue);
+  border-radius: var(--sh-radius);
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+  min-height: 300px;
+}
+.scrubhat-addons-promo__card h3 {
+  font-family: var(--sh-font-heading) !important;
+  font-size: 2.2rem;
+  line-height: 1.2;
+  color: var(--sh-text);
+  max-width: 80%;
+  margin: 0 0 1.6rem;
+}
+.scrubhat-addons-promo__card img.scrubhat-addons-promo__dog {
+  position: absolute;
+  right: 1rem;
+  bottom: 0;
+  width: 150px;
+}
+.scrubhat-addons-promo__media {
+  border-radius: var(--sh-radius);
+  overflow: hidden;
+}
+.scrubhat-addons-promo__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media screen and (max-width: 749px) {
+  .scrubhat-addons-promo {
+    grid-template-columns: 1fr;
+  }
+}
+/* related products heading */
+.related-products__heading {
+  text-align: center;
+  width: 100%;
+  font-size: 4rem;
+}

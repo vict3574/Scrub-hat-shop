@@ -1,0 +1,99 @@
+{{ 'scrubhat.css' | asset_url | stylesheet_tag }}
+
+<div class="scrubhat-circles">
+  {%- if section.settings.heading != blank -%}
+    <h2 class="scrubhat-section-title">{{ section.settings.heading }}</h2>
+  {%- endif -%}
+  <div class="scrubhat-circles__grid">
+    {%- assign blobs = 'scrubhat-blob-1.svg,scrubhat-blob-2.svg,scrubhat-blob-3.svg,scrubhat-blob-4.svg' | split: ',' -%}
+    {%- for block in section.blocks -%}
+      {%- assign blob_index = forloop.index0 | modulo: 4 -%}
+      {%- assign collection = block.settings.collection -%}
+      {%- assign title = block.settings.title | default: collection.title -%}
+      {%- assign image = block.settings.image | default: collection.featured_image -%}
+      <div class="scrubhat-circles__item" {{ block.shopify_attributes }}>
+        <h3 class="scrubhat-circles__title">{{ title }}</h3>
+        <a href="{{ collection.url | default: '#' }}" class="scrubhat-circles__media" tabindex="-1">
+          <img
+            src="{{ blobs[blob_index] | asset_url }}"
+            alt=""
+            class="scrubhat-circles__blob"
+            width="200"
+            height="160"
+            aria-hidden="true"
+          >
+          {%- if image != blank -%}
+            {{
+              image
+              | image_url: width: 300, height: 300, crop: 'center'
+              | image_tag: class: 'scrubhat-circles__image', loading: 'lazy', alt: title
+            }}
+          {%- else -%}
+            <span class="scrubhat-circles__image" style="background: var(--sh-mint); display: block;"></span>
+          {%- endif -%}
+        </a>
+        <a href="{{ collection.url | default: '#' }}" class="button">
+          {{ block.settings.button_label | default: 'Browse' }}
+        </a>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Scrubhat Collections",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Browse our collections and fabrics!"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Custom title",
+          "info": "Defaults to the collection title"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Custom image",
+          "info": "Defaults to the collection image"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "Browse"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Scrubhat Collections",
+      "blocks": [
+        { "type": "collection" },
+        { "type": "collection" },
+        { "type": "collection" }
+      ]
+    }
+  ]
+}
+{% endschema %}

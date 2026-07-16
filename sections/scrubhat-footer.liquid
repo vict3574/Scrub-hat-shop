@@ -1,0 +1,174 @@
+{{ 'scrubhat.css' | asset_url | stylesheet_tag }}
+
+<footer class="scrubhat-footer">
+  <div class="scrubhat-footer__wave" aria-hidden="true">
+    <img src="{{ 'scrubhat-footer-wave.svg' | asset_url }}" alt="" loading="lazy">
+  </div>
+  <div class="scrubhat-footer__inner">
+    <img
+      src="{{ 'scrubhat-footer-badge.svg' | asset_url }}"
+      alt="{{ shop.name | escape }}"
+      class="scrubhat-footer__badge"
+      width="120"
+      height="120"
+      loading="lazy"
+    >
+
+    <div class="scrubhat-footer__top">
+      <div class="scrubhat-footer__contact">
+        {%- if section.settings.contact_email != blank -%}
+          <div class="scrubhat-footer__contact-row">
+            <img src="{{ 'scrubhat-icon-letter.svg' | asset_url }}" alt="" aria-hidden="true" width="22" height="18">
+            <div>
+              <p class="scrubhat-footer__email">
+                <a href="mailto:{{ section.settings.contact_email }}">{{ section.settings.contact_email }}</a>
+              </p>
+              {%- if section.settings.contact_note != blank -%}
+                <p class="scrubhat-footer__note">{{ section.settings.contact_note }}</p>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endif -%}
+        <div class="scrubhat-footer__social">
+          {%- if settings.social_facebook_link != blank -%}
+            <a href="{{ settings.social_facebook_link }}" aria-label="Facebook">
+              <img src="{{ 'scrubhat-icon-facebook.svg' | asset_url }}" alt="" width="22" height="22">
+            </a>
+          {%- endif -%}
+          {%- if settings.social_instagram_link != blank -%}
+            <a href="{{ settings.social_instagram_link }}" aria-label="Instagram">
+              <img src="{{ 'scrubhat-icon-instagram.svg' | asset_url }}" alt="" width="22" height="22">
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+
+      {%- if section.settings.newsletter_enable -%}
+        <div class="scrubhat-footer__newsletter">
+          <h2>{{ section.settings.newsletter_heading }}</h2>
+          <p>{{ section.settings.newsletter_text }}</p>
+          {%- form 'customer', class: 'scrubhat-newsletter' -%}
+            <input type="hidden" name="contact[tags]" value="newsletter">
+            <div class="scrubhat-newsletter__form">
+              <label class="visually-hidden" for="ScrubhatNewsletter-{{ section.id }}">
+                {{ 'newsletter.label' | t }}
+              </label>
+              <input
+                id="ScrubhatNewsletter-{{ section.id }}"
+                type="email"
+                name="contact[email]"
+                class="scrubhat-newsletter__input"
+                value="{{ form.email }}"
+                aria-required="true"
+                autocorrect="off"
+                autocapitalize="off"
+                autocomplete="email"
+                placeholder="{{ 'newsletter.label' | t }}"
+                required
+              >
+              <button type="submit" class="scrubhat-newsletter__submit" name="commit" aria-label="{{ 'newsletter.button_label' | t }}">
+                <img src="{{ 'scrubhat-arrow.svg' | asset_url }}" alt="" width="16" height="12" aria-hidden="true">
+              </button>
+            </div>
+            {%- if form.errors -%}
+              <small class="scrubhat-newsletter__message form__message">
+                {{- form.errors.translated_fields.email | capitalize }}
+                {{ form.errors.messages.email -}}
+              </small>
+            {%- endif -%}
+            {%- if form.posted_successfully? -%}
+              <p class="scrubhat-newsletter__message form__message">{{ 'newsletter.success' | t }}</p>
+            {%- endif -%}
+          {%- endform -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="scrubhat-footer__bottom">
+      <div>
+        <p style="text-decoration: none;">
+          &copy; {{ 'now' | date: '%Y' }},
+          <a href="{{ routes.root_url }}">{{ shop.name }}</a>
+        </p>
+        <a href="https://www.shopify.com" rel="nofollow">Powered by Shopify</a>
+      </div>
+      {%- if section.settings.menu_1 != blank -%}
+        <div>
+          {%- for link in section.settings.menu_1.links -%}
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+      {%- if section.settings.menu_2 != blank -%}
+        <div>
+          {%- for link in section.settings.menu_2.links -%}
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+      {%- if section.settings.payment_enable -%}
+        <div class="scrubhat-footer__payment">
+          {%- for type in shop.enabled_payment_types -%}
+            {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Scrubhat Footer",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "text",
+      "id": "contact_email",
+      "label": "Contact email",
+      "default": "help@thescrubhatshop.co.uk"
+    },
+    {
+      "type": "text",
+      "id": "contact_note",
+      "label": "Contact note",
+      "default": "We will respond as soon as possible"
+    },
+    {
+      "type": "checkbox",
+      "id": "newsletter_enable",
+      "label": "Show newsletter",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "newsletter_heading",
+      "label": "Newsletter heading",
+      "default": "Subscribe to our newsletter"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_text",
+      "label": "Newsletter text",
+      "default": "Promotions, new products and sales. Directly to your inbox."
+    },
+    {
+      "type": "link_list",
+      "id": "menu_1",
+      "label": "Menu 1",
+      "default": "footer"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_2",
+      "label": "Menu 2"
+    },
+    {
+      "type": "checkbox",
+      "id": "payment_enable",
+      "label": "Show payment icons",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

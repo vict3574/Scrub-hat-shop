@@ -1,0 +1,117 @@
+{{ 'scrubhat.css' | asset_url | stylesheet_tag }}
+
+<div class="scrubhat-features">
+  {%- if section.settings.heading != blank -%}
+    <h2 class="scrubhat-section-title">{{ section.settings.heading }}</h2>
+  {%- endif -%}
+  {%- if section.settings.subtext != blank -%}
+    <p class="scrubhat-section-subtitle">{{ section.settings.subtext }}</p>
+  {%- endif -%}
+  <div class="scrubhat-features__grid">
+    {%- assign blobs = 'scrubhat-blob-1.svg,scrubhat-blob-2.svg,scrubhat-blob-3.svg,scrubhat-blob-4.svg,scrubhat-blob-2.svg,scrubhat-blob-3.svg' | split: ',' -%}
+    {%- for block in section.blocks -%}
+      {%- assign blob_index = forloop.index0 | modulo: 6 -%}
+      <div class="scrubhat-features__item" {{ block.shopify_attributes }}>
+        <div class="scrubhat-features__icon-wrap">
+          <img
+            src="{{ blobs[blob_index] | asset_url }}"
+            alt=""
+            class="scrubhat-features__blob"
+            width="90"
+            height="90"
+            aria-hidden="true"
+          >
+          {%- if block.settings.custom_icon != blank -%}
+            {{
+              block.settings.custom_icon
+              | image_url: width: 140
+              | image_tag: class: 'scrubhat-features__icon', loading: 'lazy', alt: ''
+            }}
+          {%- else -%}
+            {%- assign icon_file = 'scrubhat-icon-' | append: block.settings.icon | append: '.svg' -%}
+            <img
+              src="{{ icon_file | asset_url }}"
+              alt=""
+              class="scrubhat-features__icon"
+              width="62"
+              height="62"
+              aria-hidden="true"
+            >
+          {%- endif -%}
+        </div>
+        <p class="scrubhat-features__label">{{ block.settings.title }}</p>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Scrubhat Features",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "We care for our products, you and the planet"
+    },
+    {
+      "type": "text",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "- And therefor, all of our products are made with that in mind."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "brush", "label": "Paint brush" },
+            { "value": "hands", "label": "Hands" },
+            { "value": "globe", "label": "Globe" },
+            { "value": "feather", "label": "Feather" },
+            { "value": "crown", "label": "Crown" },
+            { "value": "gift", "label": "Gift bags" },
+            { "value": "washing", "label": "Washing machine" }
+          ],
+          "default": "brush"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_icon",
+          "label": "Custom icon",
+          "info": "Overrides the icon above"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Label",
+          "default": "Colourful patterns"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Scrubhat Features",
+      "blocks": [
+        { "type": "feature", "settings": { "icon": "brush", "title": "Colourful patterns" } },
+        { "type": "feature", "settings": { "icon": "hands", "title": "Always handmade" } },
+        { "type": "feature", "settings": { "icon": "globe", "title": "100% sustainable cotton" } },
+        { "type": "feature", "settings": { "icon": "feather", "title": "Comfortably lightweight" } },
+        { "type": "feature", "settings": { "icon": "crown", "title": "Suitable for all" } },
+        { "type": "feature", "settings": { "icon": "gift", "title": "Great as a gift" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
