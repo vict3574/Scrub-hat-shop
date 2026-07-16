@@ -781,31 +781,17 @@ variant-selects .product-form__input--pill input[type='radio'] + label,
   z-index: 0;
 }
 /* blobs centred directly behind the minus and plus buttons */
-.product-form__quantity .quantity {
-  position: relative;
-  z-index: 0;
-}
-.product-form__quantity .quantity::before {
-  content: '';
-  position: absolute;
-  width: 44px;
-  height: 43px;
-  left: 1px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: url('scrubhat-accent-left.svg') no-repeat center / contain;
-  z-index: -1;
-}
+.product-form__quantity .quantity::before,
 .product-form__quantity .quantity::after {
-  content: '';
-  position: absolute;
-  width: 48px;
-  height: 45px;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  background: url('scrubhat-accent-right.svg') no-repeat center / contain;
-  z-index: -1;
+  content: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  background: none !important;
+}
+.product-form__quantity .quantity {
+  background:
+    url('scrubhat-accent-left.svg') no-repeat left 2px center / 44px 43px,
+    url('scrubhat-accent-right.svg') no-repeat right 2px center / 48px 45px;
 }
 /* product icon list */
 .scrubhat-product-icons {
