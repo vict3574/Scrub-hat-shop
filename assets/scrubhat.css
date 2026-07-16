@@ -543,8 +543,8 @@ h1, h2, h3, .h0, .h1, .h2, .h3,
 .scrubhat-footer__paws {
   position: absolute;
   right: 4%;
-  top: 12%;
-  height: 80%;
+  top: 24%;
+  height: 70%;
   max-height: 737px;
   width: auto;
   opacity: 0.35;
@@ -679,6 +679,7 @@ h1, h2, h3, .h0, .h1, .h2, .h3,
   margin-left: auto;
   align-items: flex-start;
   flex-wrap: wrap;
+  max-width: 100%;
 }
 .scrubhat-footer__payment .list-payment__item svg,
 .scrubhat-footer__payment svg {
@@ -687,7 +688,7 @@ h1, h2, h3, .h0, .h1, .h2, .h3,
 }
 @media screen and (max-width: 749px) {
   .scrubhat-footer__inner {
-    padding: 0 2rem 3rem;
+    padding: 0 2rem 6rem;
   }
   .scrubhat-footer__newsletter {
     text-align: left;
@@ -695,6 +696,10 @@ h1, h2, h3, .h0, .h1, .h2, .h3,
   }
   .scrubhat-footer__badge {
     margin-bottom: 4rem;
+  }
+  .scrubhat-footer__payment {
+    justify-content: flex-start;
+    margin-left: 0;
   }
 }
 
@@ -775,23 +780,30 @@ variant-selects .product-form__input--pill input[type='radio'] + label,
   position: relative;
   z-index: 0;
 }
-.product-form__quantity::before {
+/* blobs centred directly behind the minus and plus buttons */
+.product-form__quantity .quantity {
+  position: relative;
+  z-index: 0;
+}
+.product-form__quantity .quantity::before {
   content: '';
   position: absolute;
-  width: 42px;
-  height: 41px;
-  left: -4px;
-  bottom: -14px;
+  width: 44px;
+  height: 43px;
+  left: 1px;
+  top: 50%;
+  transform: translateY(-50%);
   background: url('scrubhat-accent-left.svg') no-repeat center / contain;
   z-index: -1;
 }
-.product-form__quantity::after {
+.product-form__quantity .quantity::after {
   content: '';
   position: absolute;
   width: 48px;
   height: 45px;
-  left: 118px;
-  bottom: -16px;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
   background: url('scrubhat-accent-right.svg') no-repeat center / contain;
   z-index: -1;
 }
