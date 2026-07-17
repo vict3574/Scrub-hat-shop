@@ -1,0 +1,98 @@
+{
+  "sections": {
+    "faq": {
+      "type": "scrubhat-faq",
+      "blocks": {
+        "q1": {
+          "type": "faq",
+          "settings": {
+            "tag": "Fit & sizing",
+            "tag_color": "mint",
+            "question": "Are your hats for men and women?",
+            "answer": "<p>Yes! Our unique design means they will fit both men and women comfortably.</p>",
+            "open": true
+          }
+        },
+        "q2": {
+          "type": "faq",
+          "settings": {
+            "tag": "Fit & sizing",
+            "tag_color": "mint",
+            "question": "I have loads of thick long hair — will your hats fit me?",
+            "answer": "<p>This is our most frequently asked question! We find that our hats fit the vast majority of women with thick or long hair. Our design has an elasticated area at the back to collect and hold hair in. Lots of women have been pleasantly surprised by the fit — but we are more than happy to accept returns for refunds if needed.</p>",
+            "open": true
+          }
+        },
+        "q3": {
+          "type": "faq",
+          "settings": {
+            "tag": "Style",
+            "tag_color": "pink",
+            "question": "Can you make a 'bouffant style' hat?",
+            "answer": "<p>We only make one style of hat to keep things simple — and we find it's the most popular style too!</p>",
+            "open": true
+          }
+        },
+        "q4": {
+          "type": "faq",
+          "settings": {
+            "tag": "Custom orders",
+            "tag_color": "yellow",
+            "question": "I really want my pet on a hat or pocket — is this possible?",
+            "answer": "<p>Yes, we've done this many times! Send us a message to discuss your ideas and photos. We love seeing our customers' furry friends.</p>",
+            "open": true
+          }
+        },
+        "q5": {
+          "type": "faq",
+          "settings": {
+            "tag": "Custom orders",
+            "tag_color": "yellow",
+            "question": "How do I choose my own fabric?",
+            "answer": "<p>Send us a message using the contact form with an idea of what you might be after — if you don't know yet, don't worry! We'll then give you the link to our main fabric supplier to have a browse. There are literally 100,000s of designs to choose from!</p>",
+            "open": true
+          }
+        },
+        "q6": {
+          "type": "faq",
+          "settings": {
+            "tag": "Custom orders",
+            "tag_color": "yellow",
+            "question": "How long do custom orders take?",
+            "answer": "<p>Once your fabric has been approved by our design team, it takes 3 weeks for fabric delivery, cutting, making, and dispatch.</p>",
+            "open": true
+          }
+        },
+        "q7": {
+          "type": "faq",
+          "settings": {
+            "tag": "Pricing",
+            "tag_color": "purple",
+            "question": "Do you do discounts for larger orders?",
+            "answer": "<p>Yes! We offer a 20% discount for orders of over 5 hats. Send us a message to discuss your requirements.</p>",
+            "open": true
+          }
+        },
+        "q8": {
+          "type": "faq",
+          "settings": {
+            "tag": "Custom orders",
+            "tag_color": "yellow",
+            "question": "Can we get our own logo put on?",
+            "answer": "<p>Absolutely! Send us a message to discuss what you need and we'll get it sorted for you.</p>",
+            "open": true
+          }
+        }
+      },
+      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8"],
+      "settings": {
+        "heading": "FAQs",
+        "subtext": "Check out our most frequently asked questions below — and if you don't see what you need, just message us!",
+        "cta_heading": "Still got a question?",
+        "cta_text": "We're always happy to help — drop us a message and we'll get back to you as soon as possible!",
+        "cta_button": "Message us"
+      }
+    }
+  },
+  "order": ["faq"]
+}
