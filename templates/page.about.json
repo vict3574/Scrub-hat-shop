@@ -1,0 +1,145 @@
+{
+  "sections": {
+    "about": {
+      "type": "scrubhat-about",
+      "blocks": {
+        "value_1": {
+          "type": "value",
+          "settings": {
+            "emoji": "🤍",
+            "title": "Made with love",
+            "text": "Every hat is crafted with genuine care by our team in Surrey, UK."
+          }
+        },
+        "value_2": {
+          "type": "value",
+          "settings": {
+            "emoji": "✂️",
+            "title": "Handmade quality",
+            "text": "Each hat is individually cut and sewn by skilled seamstresses."
+          }
+        },
+        "value_3": {
+          "type": "value",
+          "settings": {
+            "emoji": "🌍",
+            "title": "Worldwide shipping",
+            "text": "We ship our hats all over the world to theatre teams everywhere."
+          }
+        },
+        "value_4": {
+          "type": "value",
+          "settings": {
+            "emoji": "✉️",
+            "title": "Friendly bunch",
+            "text": "Always happy to help with custom orders and any questions you have."
+          }
+        },
+        "member_1": {
+          "type": "member",
+          "settings": {
+            "emoji": "🐾",
+            "name": "Sarah",
+            "role": "Founder & Designer",
+            "text": "Retired Vet Nurse of 15+ years. Knows exactly what theatre teams need."
+          }
+        },
+        "member_2": {
+          "type": "member",
+          "settings": {
+            "emoji": "✂️",
+            "name": "Abby & Lindsay",
+            "role": "Fabric Prep",
+            "text": "Our talented duo who prepare and sort all our beautiful fabrics."
+          }
+        },
+        "member_3": {
+          "type": "member",
+          "settings": {
+            "emoji": "🧵",
+            "name": "Sheila & Jo",
+            "role": "Seamstresses",
+            "text": "The skilled hands behind every perfectly stitched scrub hat."
+          }
+        },
+        "member_4": {
+          "type": "member",
+          "settings": {
+            "emoji": "🎨",
+            "name": "Tom",
+            "role": "Design & Web",
+            "text": "Handles graphic design, custom orders, and all things website wizardry."
+          }
+        },
+        "member_5": {
+          "type": "member",
+          "settings": {
+            "emoji": "🔧",
+            "name": "Rob",
+            "role": "Fabric Cutter & Mr Fix It",
+            "text": "Our all-rounder keeping things running smoothly behind the scenes."
+          }
+        }
+      },
+      "block_order": [
+        "value_1",
+        "value_2",
+        "value_3",
+        "value_4",
+        "member_1",
+        "member_2",
+        "member_3",
+        "member_4",
+        "member_5"
+      ],
+      "settings": {
+        "hero_eyebrow": "— A little bit about us",
+        "hero_heading": "Hi everyone, <em>we're The<\/em> Scrub Hat Shop!",
+        "hero_text": "Making lightweight, cool and comfortable scrub hats for healthcare heroes all over the world — since 2019.",
+        "hero_button": "Read our story",
+        "story_eyebrow": "— Our story",
+        "story_heading": "From the operating theatre to your head!",
+        "story_text": "<p>My name is <strong>Sarah<\/strong> and I am a retired Veterinary Nurse from Surrey, UK. I set up The Scrub Hat Shop in 2019, and since then it has gone from strength to strength — with people buying our hats all over the world.<\/p><p>I was a Vet Nurse for over <strong>15 years<\/strong> and spent most of my time in orthopaedic and spinal surgeries. I know what it feels like to spend long days in theatre, which is why it was so important to me to create hats that were <strong>lightweight, cool and comfortable ALL day<\/strong> (and look awesome doing it!).<\/p><p>If you don't see a pattern you like or want to ask a question then feel free to contact us — we're a very friendly bunch!<\/p>",
+        "note_title": "Happy Scrubbing! 🐾",
+        "note_sub": "— Sarah and The Team",
+        "values_heading": "We care for our products, you and the planet",
+        "values_sub": "— And therefore, all of our products are made with that in mind.",
+        "team_heading": "Meet the team",
+        "team_sub": "— The wonderful people who make every hat possible",
+        "cta_heading": "Ready to find your perfect scrub hat?",
+        "cta_text": "Browse our colourful collection of lightweight, comfortable hats — or contact us to design a custom piece just for you.",
+        "cta_button_1": "Browse hats",
+        "cta_button_2": "Contact us"
+      }
+    },
+    "testimonials": {
+      "type": "scrubhat-testimonials",
+      "blocks": {
+        "testimonial_1": {
+          "type": "testimonial",
+          "settings": {
+            "color": "pink",
+            "title": "Love my hats",
+            "text": "Fabulous hats, fabulous service, fabulous company. Thank you so much.",
+            "author": "Kelly"
+          }
+        },
+        "testimonial_2": {
+          "type": "testimonial",
+          "settings": {
+            "color": "mint",
+            "title": "Love the designs",
+            "text": "These are well made, comfortable scrub hats that wash nicely.",
+            "author": "Emily"
+          }
+        }
+      },
+      "block_order": ["testimonial_1", "testimonial_2"],
+      "settings": {
+        "heading": "Our customers say",
+        "show_dog": true
+      }
+    }
+  },
+  "order": ["about", "testimonials"]
+}
