@@ -12,9 +12,10 @@
       {%- assign collection = block.settings.collection -%}
       {%- assign title = block.settings.title | default: collection.title -%}
       {%- assign image = block.settings.image | default: collection.featured_image -%}
+      {%- assign link = block.settings.link | default: collection.url | default: '#' -%}
       <div class="scrubhat-circles__item" {{ block.shopify_attributes }}>
         <h3 class="scrubhat-circles__title">{{ title }}</h3>
-        <a href="{{ collection.url | default: '#' }}" class="scrubhat-circles__media" tabindex="-1">
+        <a href="{{ link }}" class="scrubhat-circles__media" tabindex="-1">
           <img
             src="{{ blobs[blob_index] | asset_url }}"
             alt=""
@@ -40,7 +41,7 @@
             >
           {%- endif -%}
         </a>
-        <a href="{{ collection.url | default: '#' }}" class="button">
+        <a href="{{ link }}" class="button">
           {{ block.settings.button_label | default: 'Browse' }}
         </a>
       </div>
@@ -70,6 +71,12 @@
           "type": "collection",
           "id": "collection",
           "label": "Collection"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Custom link",
+          "info": "Overrides the collection link"
         },
         {
           "type": "text",

@@ -15,14 +15,18 @@
         "circle_1": {
           "type": "collection",
           "settings": {
+            "collection": "hats",
             "title": "Scrub hats",
+            "link": "\/collections\/hats",
             "button_label": "Browse"
           }
         },
         "circle_2": {
           "type": "collection",
           "settings": {
+            "collection": "pockets",
             "title": "Pockets",
+            "link": "\/collections\/pockets",
             "button_label": "Browse"
           }
         },
@@ -30,6 +34,7 @@
           "type": "collection",
           "settings": {
             "title": "Custom",
+            "link": "\/pages\/choose-your-own-1",
             "button_label": "Browse"
           }
         }
