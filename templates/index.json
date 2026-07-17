@@ -3,7 +3,7 @@
     "hero": {
       "type": "scrubhat-hero",
       "settings": {
-        "heading": "Browse our <em>colourfull</em> selection of Scrub hats",
+        "heading": "Browse our <em>colourful</em> selection of Scrub hats",
         "subtext": "- Or you can choose your own fabric",
         "button_label": "Browse",
         "button_link": "shopify:\/\/collections\/all"
@@ -52,7 +52,7 @@
       "block_order": ["feature_1", "feature_2", "feature_3", "feature_4", "feature_5", "feature_6"],
       "settings": {
         "heading": "We care for our products, you and the planet",
-        "subtext": "- And therefor, all of our products are made with that in mind."
+        "subtext": "- And therefore, all of our products are made with that in mind."
       }
     },
     "featured_collection": {

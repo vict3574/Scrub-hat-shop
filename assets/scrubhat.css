@@ -384,6 +384,23 @@ h1, h2, h3, .h0, .h1, .h2, .h3,
   min-height: 4.4rem;
   padding: 0 2rem;
 }
+@media screen and (max-width: 749px) {
+  .quick-add {
+    min-width: 0;
+    max-width: calc(100% - 1.2rem);
+  }
+  @supports (width: 1cqw) {
+    .quick-add {
+      top: calc(125cqw - 5.6rem);
+    }
+  }
+  .quick-add__submit {
+    font-size: 1.4rem;
+    min-height: 3.6rem;
+    padding: 0 1.2rem;
+    box-shadow: 2px 2.5px 0 0 var(--sh-ink);
+  }
+}
 /* rating as badge on the image top-left corner */
 .card-wrapper .rating {
   position: absolute;
@@ -687,6 +704,20 @@ h1, h2, h3, .h0, .h1, .h2, .h3,
   background: #fff;
 }
 @media screen and (max-width: 749px) {
+  /* wave becomes a top cap so the mint fill reaches all the way up like the design */
+  .scrubhat-footer__wave img {
+    height: 150px;
+    object-fit: fill;
+  }
+  .scrubhat-footer__wave::after {
+    content: '';
+    position: absolute;
+    top: 149px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--sh-mint);
+  }
   .scrubhat-footer__inner {
     padding: 0 2rem 6rem;
   }
