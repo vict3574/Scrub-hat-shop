@@ -1,0 +1,454 @@
+{{ 'scrubhat.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+  .scrubhat-contact {
+    font-family: var(--sh-font-body);
+    color: var(--sh-text);
+    background: #f0faf8;
+    padding: 2rem 1.5rem 6rem;
+  }
+  .scrubhat-contact__hero {
+    position: relative;
+    max-width: var(--page-width);
+    margin: 0 auto 4rem;
+    background-color: var(--sh-mint);
+    background-image: url('{{ 'scrubhat-hero-bg.svg' | asset_url }}');
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 2rem;
+    align-items: end;
+    padding: 5rem 5rem 0;
+  }
+  .scrubhat-contact__hero h1 {
+    font-family: var(--sh-font-heading) !important;
+    font-size: 4.4rem;
+    margin: 0 0 1.4rem;
+    color: var(--sh-text);
+  }
+  .scrubhat-contact__hero p {
+    font-size: 1.6rem;
+    line-height: 1.5;
+    max-width: 34rem;
+    margin: 0 0 2.4rem;
+  }
+  .scrubhat-contact__hero-buttons {
+    display: flex;
+    gap: 1.4rem;
+    flex-wrap: wrap;
+    margin-bottom: 4rem;
+  }
+  .scrubhat-contact__hero .button {
+    font-size: 1.4rem;
+    min-height: 3.8rem;
+    padding: 0 1.6rem;
+  }
+  .scrubhat-contact__hero-dog {
+    justify-self: center;
+    align-self: end;
+    width: 250px;
+    max-width: 100%;
+  }
+  .scrubhat-contact__hero-dog img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  /* contact cards */
+  .scrubhat-contact__cards {
+    max-width: 82rem;
+    margin: 0 auto 6rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  .scrubhat-contact__card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 10px rgba(45, 141, 126, 0.08);
+    text-align: center;
+    padding: 2.6rem 2rem;
+    display: block;
+    color: var(--sh-text);
+    text-decoration: none;
+  }
+  .scrubhat-contact__card-icon {
+    width: 40px;
+    height: 40px;
+    border: 1.5px solid #43786c;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.2rem;
+    font-size: 1.7rem;
+    color: #43786c;
+  }
+  .scrubhat-contact__card-label {
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #43786c;
+    margin: 0 0 0.6rem;
+  }
+  .scrubhat-contact__card-value {
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin: 0 0 0.4rem;
+  }
+  .scrubhat-contact__card-sub {
+    font-size: 1.2rem;
+    color: #7a8a86;
+    margin: 0;
+  }
+  /* form */
+  .scrubhat-contact__form-head {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .scrubhat-contact__form-head h2 {
+    font-family: var(--sh-font-heading) !important;
+    font-size: 3.2rem;
+    margin: 0 0 0.8rem;
+    color: var(--sh-text);
+  }
+  .scrubhat-contact__form-head p {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  .scrubhat-contact__form-card {
+    max-width: 76rem;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 10px rgba(45, 141, 126, 0.08);
+    padding: 3.6rem 4rem 3rem;
+  }
+  .scrubhat-contact__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.4rem;
+  }
+  .scrubhat-contact__field {
+    margin-bottom: 2.2rem;
+  }
+  .scrubhat-contact__field label {
+    display: block;
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: #43786c;
+    margin-bottom: 0.8rem;
+  }
+  .scrubhat-contact__field input,
+  .scrubhat-contact__field textarea {
+    width: 100%;
+    border: 1px solid #dce8e4;
+    border-radius: 8px;
+    padding: 1.1rem 1.4rem;
+    font-family: var(--sh-font-body);
+    font-size: 1.4rem;
+    color: var(--sh-text);
+    background: #fff;
+    box-sizing: border-box;
+  }
+  .scrubhat-contact__field input::placeholder,
+  .scrubhat-contact__field textarea::placeholder {
+    color: #a9b8b3;
+  }
+  .scrubhat-contact__field textarea {
+    min-height: 12rem;
+    resize: vertical;
+  }
+  .scrubhat-contact__submit-row {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .scrubhat-contact__submit {
+    background: #43786c;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-family: var(--sh-font-body);
+    font-weight: 600;
+    font-size: 1.5rem;
+    padding: 1.2rem 2.4rem;
+    cursor: pointer;
+  }
+  .scrubhat-contact__submit:hover {
+    opacity: 0.9;
+  }
+  .scrubhat-contact__success {
+    max-width: 76rem;
+    margin: 0 auto 2rem;
+    background: var(--sh-mint-light);
+    border-radius: 10px;
+    padding: 1.6rem 2rem;
+    font-size: 1.5rem;
+  }
+  .scrubhat-contact__errors {
+    max-width: 76rem;
+    margin: 0 auto 2rem;
+    background: var(--sh-pink);
+    border-radius: 10px;
+    padding: 1.6rem 2rem;
+    font-size: 1.5rem;
+  }
+  /* FAQ CTA */
+  .scrubhat-contact__faq {
+    max-width: 76rem;
+    margin: 4rem auto 0;
+    background: var(--sh-pink);
+    border-radius: 16px;
+    padding: 2.4rem 2.8rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .scrubhat-contact__faq-icon {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #efb3d5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 2rem;
+  }
+  .scrubhat-contact__faq-text {
+    flex: 1;
+    min-width: 20rem;
+  }
+  .scrubhat-contact__faq-text h2 {
+    font-family: var(--sh-font-body) !important;
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: #c0548a;
+    letter-spacing: 0;
+    margin: 0 0 0.4rem;
+  }
+  .scrubhat-contact__faq-text p {
+    font-size: 1.4rem;
+    color: #c0548a;
+    margin: 0;
+    line-height: 1.5;
+  }
+  .scrubhat-contact__faq .button {
+    background: #c0548a;
+    color: #fff;
+    border: none;
+    box-shadow: none;
+    border-radius: 10px;
+    font-family: var(--sh-font-body);
+    font-weight: 600;
+    font-size: 1.5rem;
+  }
+  .scrubhat-contact__faq .button:hover {
+    transform: none;
+    box-shadow: none;
+    opacity: 0.9;
+  }
+  @media screen and (max-width: 749px) {
+    .scrubhat-contact__hero {
+      grid-template-columns: 1fr;
+      padding: 3.5rem 2.5rem 0;
+    }
+    .scrubhat-contact__hero h1 {
+      font-size: 3.2rem;
+    }
+    .scrubhat-contact__hero-dog {
+      width: 190px;
+    }
+    .scrubhat-contact__hero-buttons {
+      margin-bottom: 2rem;
+    }
+    .scrubhat-contact__cards {
+      grid-template-columns: 1fr;
+    }
+    .scrubhat-contact__row {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+    .scrubhat-contact__form-card {
+      padding: 2.6rem 2rem 2.4rem;
+    }
+  }
+{% endstyle %}
+
+<div class="scrubhat-contact">
+  <div class="scrubhat-contact__hero">
+    <div>
+      <h1>{{ section.settings.heading }}</h1>
+      <p>{{ section.settings.text }}</p>
+      <div class="scrubhat-contact__hero-buttons">
+        {%- if section.settings.email != blank -%}
+          <a href="mailto:{{ section.settings.email }}" class="button">&#9993;&nbsp; Email us directly</a>
+        {%- endif -%}
+        {%- if section.settings.faq_link != blank -%}
+          <a href="{{ section.settings.faq_link }}" class="button">Browse FAQs &rarr;</a>
+        {%- endif -%}
+      </div>
+    </div>
+    <div class="scrubhat-contact__hero-dog">
+      <img src="{{ 'scrubhat-hero-dog.svg' | asset_url }}" alt="" width="250" height="319" loading="eager" aria-hidden="true">
+    </div>
+  </div>
+
+  <div class="scrubhat-contact__cards">
+    {%- if section.settings.email != blank -%}
+      <a class="scrubhat-contact__card" href="mailto:{{ section.settings.email }}">
+        <span class="scrubhat-contact__card-icon" aria-hidden="true">&#9993;</span>
+        <p class="scrubhat-contact__card-label">Email</p>
+        <p class="scrubhat-contact__card-value">{{ section.settings.email }}</p>
+        <p class="scrubhat-contact__card-sub">{{ section.settings.email_sub }}</p>
+      </a>
+    {%- endif -%}
+    {%- if section.settings.instagram != blank -%}
+      <a class="scrubhat-contact__card" href="https://instagram.com/{{ section.settings.instagram | remove: '@' }}" target="_blank" rel="noopener">
+        <span class="scrubhat-contact__card-icon" aria-hidden="true">&#9825;</span>
+        <p class="scrubhat-contact__card-label">Instagram</p>
+        <p class="scrubhat-contact__card-value">{{ section.settings.instagram }}</p>
+        <p class="scrubhat-contact__card-sub">{{ section.settings.instagram_sub }}</p>
+      </a>
+    {%- endif -%}
+    {%- if section.settings.facebook != blank -%}
+      <a class="scrubhat-contact__card" href="{{ section.settings.facebook_link | default: settings.social_facebook_link }}" target="_blank" rel="noopener">
+        <span class="scrubhat-contact__card-icon" aria-hidden="true">f</span>
+        <p class="scrubhat-contact__card-label">Facebook</p>
+        <p class="scrubhat-contact__card-value">{{ section.settings.facebook }}</p>
+        <p class="scrubhat-contact__card-sub">{{ section.settings.facebook_sub }}</p>
+      </a>
+    {%- endif -%}
+  </div>
+
+  <div class="scrubhat-contact__form-head">
+    <h2>{{ section.settings.form_heading }}</h2>
+    <p>{{ section.settings.form_sub }}</p>
+  </div>
+
+  {%- form 'contact' -%}
+    {%- if form.posted_successfully? -%}
+      <div class="scrubhat-contact__success" tabindex="-1" autofocus>
+        {{ 'templates.contact.form.post_success' | t }}
+      </div>
+    {%- elsif form.errors -%}
+      <div class="scrubhat-contact__errors" role="alert">
+        {{ form.errors.translated_fields.email | capitalize }}
+        {{ form.errors.messages.email }}
+      </div>
+    {%- endif -%}
+    <div class="scrubhat-contact__form-card">
+      <div class="scrubhat-contact__row">
+        <div class="scrubhat-contact__field">
+          <label for="ContactName-{{ section.id }}">Your name</label>
+          <input
+            type="text"
+            id="ContactName-{{ section.id }}"
+            name="contact[name]"
+            value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+            placeholder="Jane Smith"
+            autocomplete="name"
+          >
+        </div>
+        <div class="scrubhat-contact__field">
+          <label for="ContactEmail-{{ section.id }}">Email address</label>
+          <input
+            type="email"
+            id="ContactEmail-{{ section.id }}"
+            name="contact[email]"
+            value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+            placeholder="jane@example.com"
+            autocomplete="email"
+            spellcheck="false"
+            autocapitalize="off"
+            aria-required="true"
+            required
+          >
+        </div>
+      </div>
+      <div class="scrubhat-contact__field">
+        <label for="ContactSubject-{{ section.id }}">What's this about?</label>
+        <input type="text" id="ContactSubject-{{ section.id }}" name="contact[subject]" value="{{ form.subject }}">
+      </div>
+      <div class="scrubhat-contact__field">
+        <label for="ContactBody-{{ section.id }}">Your message</label>
+        <textarea
+          id="ContactBody-{{ section.id }}"
+          name="contact[body]"
+          placeholder="Tell us what's on your mind..."
+          aria-required="true"
+          required
+        >{{ form.body }}</textarea>
+      </div>
+      <div class="scrubhat-contact__submit-row">
+        <button type="submit" class="scrubhat-contact__submit">Send message &rarr;</button>
+      </div>
+    </div>
+  {%- endform -%}
+
+  {%- if section.settings.faq_heading != blank -%}
+    <div class="scrubhat-contact__faq">
+      <span class="scrubhat-contact__faq-icon" aria-hidden="true">&#128488;</span>
+      <div class="scrubhat-contact__faq-text">
+        <h2>{{ section.settings.faq_heading }}</h2>
+        <p>{{ section.settings.faq_text }}</p>
+      </div>
+      <a href="{{ section.settings.faq_link | default: '/pages/faq' }}" class="button">
+        {{ section.settings.faq_button | default: 'View FAQs' }}
+      </a>
+    </div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Scrubhat Contact",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Contact us" },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text",
+      "default": "We'd love to hear from you! Questions about orders, custom designs, or anything else — we're here."
+    },
+    { "type": "header", "content": "Contact cards" },
+    { "type": "text", "id": "email", "label": "Email", "default": "info@thescrubhatshop.com" },
+    { "type": "text", "id": "email_sub", "label": "Email note", "default": "We reply as soon as possible" },
+    { "type": "text", "id": "instagram", "label": "Instagram handle", "default": "@thescrubhatshop" },
+    { "type": "text", "id": "instagram_sub", "label": "Instagram note", "default": "DMs welcome" },
+    { "type": "text", "id": "facebook", "label": "Facebook name", "default": "The Scrub Hat Shop" },
+    { "type": "url", "id": "facebook_link", "label": "Facebook link" },
+    { "type": "text", "id": "facebook_sub", "label": "Facebook note", "default": "Find us on Facebook" },
+    { "type": "header", "content": "Form" },
+    { "type": "text", "id": "form_heading", "label": "Form heading", "default": "Send us a message" },
+    {
+      "type": "text",
+      "id": "form_sub",
+      "label": "Form subtext",
+      "default": "We aim to reply within 1-2 business days."
+    },
+    { "type": "header", "content": "FAQ card" },
+    { "type": "text", "id": "faq_heading", "label": "FAQ heading", "default": "Still got a question?" },
+    {
+      "type": "text",
+      "id": "faq_text",
+      "label": "FAQ text",
+      "default": "We're always happy to help — check out our FAQs or drop us a message and we'll get back to you as soon as possible!"
+    },
+    { "type": "text", "id": "faq_button", "label": "FAQ button label", "default": "View FAQs" },
+    { "type": "url", "id": "faq_link", "label": "FAQ link" }
+  ],
+  "presets": [
+    {
+      "name": "Scrubhat Contact"
+    }
+  ]
+}
+{% endschema %}
