@@ -38,40 +38,6 @@
   >
     <h3 class="scrubhat-customiser__title">Customise your hat</h3>
 
-    {%- if buttons_product != blank -%}
-      <div class="scrubhat-customiser__group" data-addon="buttons">
-        <p class="scrubhat-customiser__label">Would you like buttons?</p>
-        <div class="scrubhat-customiser__pills" role="radiogroup" aria-label="Buttons">
-          <button type="button" class="scrubhat-customiser__pill is-selected" data-value="no">No</button>
-          <button type="button" class="scrubhat-customiser__pill" data-value="yes">
-            Yes (+{{ buttons_product.selected_or_first_available_variant.price | money }})
-          </button>
-        </div>
-      </div>
-    {%- endif -%}
-
-    {%- if show_satin -%}
-      <div class="scrubhat-customiser__group" data-addon="satin">
-        <p class="scrubhat-customiser__label">Would you like a satin lining?</p>
-        <div class="scrubhat-customiser__pills" role="radiogroup" aria-label="Satin lining">
-          <button type="button" class="scrubhat-customiser__pill is-selected" data-value="no">No</button>
-          <button type="button" class="scrubhat-customiser__pill" data-value="yes">
-            Yes (+{{ satin_product.selected_or_first_available_variant.price | money }})
-          </button>
-        </div>
-        <div class="scrubhat-customiser__reveal" data-reveal="satin" hidden>
-          <p class="scrubhat-customiser__sublabel">
-            Satin colour <span class="scrubhat-customiser__req">*</span>
-          </p>
-          <div class="scrubhat-customiser__swatches" data-swatches="satin"></div>
-          <p class="scrubhat-customiser__hint" data-selected-label="satin"></p>
-          <div class="scrubhat-customiser__notice">
-            Satin lined hats are custom made to order and can take 1 day to 3 weeks.
-          </div>
-        </div>
-      </div>
-    {%- endif -%}
-
     {%- if embroidery_product != blank -%}
       <div class="scrubhat-customiser__group" data-addon="embroidery">
         <p class="scrubhat-customiser__label">Add personalised embroidery?</p>
@@ -124,6 +90,40 @@
               <input type="text" data-line="3" autocomplete="off">
               <small>Cannot support emojis</small>
             </label>
+          </div>
+        </div>
+      </div>
+    {%- endif -%}
+
+    {%- if buttons_product != blank -%}
+      <div class="scrubhat-customiser__group" data-addon="buttons">
+        <p class="scrubhat-customiser__label">Would you like buttons?</p>
+        <div class="scrubhat-customiser__pills" role="radiogroup" aria-label="Buttons">
+          <button type="button" class="scrubhat-customiser__pill is-selected" data-value="no">No</button>
+          <button type="button" class="scrubhat-customiser__pill" data-value="yes">
+            Yes (+{{ buttons_product.selected_or_first_available_variant.price | money }})
+          </button>
+        </div>
+      </div>
+    {%- endif -%}
+
+    {%- if show_satin -%}
+      <div class="scrubhat-customiser__group" data-addon="satin">
+        <p class="scrubhat-customiser__label">Would you like a satin lining?</p>
+        <div class="scrubhat-customiser__pills" role="radiogroup" aria-label="Satin lining">
+          <button type="button" class="scrubhat-customiser__pill is-selected" data-value="no">No</button>
+          <button type="button" class="scrubhat-customiser__pill" data-value="yes">
+            Yes (+{{ satin_product.selected_or_first_available_variant.price | money }})
+          </button>
+        </div>
+        <div class="scrubhat-customiser__reveal" data-reveal="satin" hidden>
+          <p class="scrubhat-customiser__sublabel">
+            Satin colour <span class="scrubhat-customiser__req">*</span>
+          </p>
+          <div class="scrubhat-customiser__swatches" data-swatches="satin"></div>
+          <p class="scrubhat-customiser__hint" data-selected-label="satin"></p>
+          <div class="scrubhat-customiser__notice">
+            Satin lined hats are custom made to order and can take 1 day to 3 weeks.
           </div>
         </div>
       </div>

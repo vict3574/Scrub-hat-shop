@@ -200,7 +200,8 @@ h1, h2, h3, .h0, .h1, .h2, .h3,
   gap: 1.6rem;
 }
 .scrubhat-hero__cta .button.scrubhat-hero__button--sale {
-  background: #ffe6fe;
+  background: #d40418;
+  color: #fff;
 }
 /* strokes at fixed natural size (204x53 svg), never stretched with the button row */
 .scrubhat-hero__sparkles {

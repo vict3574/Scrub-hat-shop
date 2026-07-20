@@ -1,0 +1,41 @@
+{
+  "sections": {
+    "cyo": {
+      "type": "scrubhat-cyo",
+      "settings": {
+        "hat_link": "\/products\/choose-your-own-fabric-scrub-hat",
+        "pocket_link": "\/products\/copy-of-choose-your-own-fabric-pocket",
+        "cta_link": "\/pages\/contact-us"
+      }
+    },
+    "testimonials": {
+      "type": "scrubhat-testimonials",
+      "blocks": {
+        "testimonial_1": {
+          "type": "testimonial",
+          "settings": {
+            "color": "pink",
+            "title": "Love my hats",
+            "text": "Fabulous hats, fabulous service, fabulous company. Thank you so much.",
+            "author": "Kelly"
+          }
+        },
+        "testimonial_2": {
+          "type": "testimonial",
+          "settings": {
+            "color": "mint",
+            "title": "Love the designs",
+            "text": "These are well made, comfortable scrub hats that wash nicely.",
+            "author": "Emily"
+          }
+        }
+      },
+      "block_order": ["testimonial_1", "testimonial_2"],
+      "settings": {
+        "heading": "Our customers say",
+        "show_dog": false
+      }
+    }
+  },
+  "order": ["cyo", "testimonials"]
+}

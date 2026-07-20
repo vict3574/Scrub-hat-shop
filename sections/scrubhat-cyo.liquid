@@ -1,0 +1,285 @@
+{{ 'scrubhat.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+  .scrubhat-cyo {
+    max-width: var(--page-width);
+    margin: 0 auto;
+    padding: 2rem 2rem 6rem;
+    font-family: var(--sh-font-body);
+    color: var(--sh-text);
+  }
+  .scrubhat-cyo__breadcrumb {
+    font-size: 1.2rem;
+    color: #43786c;
+    margin: 0 0 2.4rem;
+  }
+  .scrubhat-cyo__breadcrumb a {
+    color: #43786c;
+    text-decoration: none;
+  }
+  .scrubhat-cyo__breadcrumb .current {
+    color: var(--sh-text);
+    font-weight: 600;
+  }
+  .scrubhat-cyo__grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .scrubhat-cyo__picker {
+    background: var(--sh-mint-light);
+    border-radius: 16px;
+    padding: 2.6rem 2rem 3rem;
+    text-align: center;
+    margin-bottom: 2.4rem;
+  }
+  .scrubhat-cyo__picker h2 {
+    font-family: var(--sh-font-heading) !important;
+    font-size: 2rem;
+    margin: 0 0 2rem;
+    color: var(--sh-text);
+  }
+  .scrubhat-cyo__choices {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+  }
+  .scrubhat-cyo__choice {
+    display: block;
+    text-decoration: none;
+    color: var(--sh-text);
+  }
+  .scrubhat-cyo__choice img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--sh-ink);
+    display: block;
+    margin: 0 auto 1rem;
+    transition: transform 0.15s ease;
+  }
+  .scrubhat-cyo__choice:hover img {
+    transform: scale(1.05);
+  }
+  .scrubhat-cyo__choice span {
+    font-weight: 600;
+    font-size: 1.4rem;
+  }
+  .scrubhat-cyo__example {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 3px 14px rgba(18, 18, 18, 0.08);
+  }
+  .scrubhat-cyo__example img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    display: block;
+  }
+  .scrubhat-cyo__example figcaption {
+    background: rgba(18, 18, 18, 0.78);
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 0.9rem 1.4rem;
+  }
+  .scrubhat-cyo__title {
+    font-family: var(--sh-font-heading) !important;
+    font-size: 3.2rem;
+    line-height: 1.25;
+    margin: 0 0 1.2rem;
+    color: var(--sh-text);
+  }
+  .scrubhat-cyo__price {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0 0 0.2rem;
+  }
+  .scrubhat-cyo__price small {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: #43786c;
+    margin-left: 0.6rem;
+  }
+  .scrubhat-cyo__tax {
+    font-size: 1.2rem;
+    color: #43786c;
+    margin: 0 0 2rem;
+  }
+  .scrubhat-cyo__body {
+    border-top: 1px solid #e3ece9;
+    padding-top: 2rem;
+    font-size: 1.5rem;
+    line-height: 1.65;
+  }
+  .scrubhat-cyo__body h3 {
+    font-family: var(--sh-font-body) !important;
+    font-weight: 600;
+    font-size: 1.6rem;
+    margin: 0 0 1.2rem;
+    color: var(--sh-text);
+  }
+  .scrubhat-cyo__body p {
+    margin: 0 0 1.4rem;
+  }
+  .scrubhat-cyo__cta {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: var(--sh-mint-light);
+    border: 1.5px solid var(--sh-ink);
+    border-radius: 10px;
+    font-family: var(--sh-font-body);
+    font-weight: 600;
+    font-size: 1.6rem;
+    color: var(--sh-text);
+    text-decoration: none;
+    padding: 1.4rem;
+    margin-top: 1.6rem;
+  }
+  .scrubhat-cyo__cta:hover {
+    background: var(--sh-mint);
+  }
+  .scrubhat-cyo__hint {
+    text-align: center;
+    font-size: 1.3rem;
+    color: #43786c;
+    margin: 1.2rem 0 2rem;
+  }
+  .scrubhat-cyo__note {
+    background: #fffbe8;
+    border: 1px solid #eadfa8;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    line-height: 1.55;
+    padding: 1.4rem 1.6rem;
+  }
+  @media screen and (max-width: 749px) {
+    .scrubhat-cyo__grid {
+      grid-template-columns: 1fr;
+      gap: 2.4rem;
+    }
+    .scrubhat-cyo__title {
+      font-size: 2.6rem;
+    }
+    .scrubhat-cyo__choices {
+      gap: 2.4rem;
+    }
+  }
+{% endstyle %}
+
+<div class="scrubhat-cyo">
+  <p class="scrubhat-cyo__breadcrumb">
+    <a href="{{ routes.root_url }}">Home</a> &rsaquo; <span>Custom</span> &rsaquo;
+    <span class="current">{{ section.settings.breadcrumb_label }}</span>
+  </p>
+  <div class="scrubhat-cyo__grid">
+    <div>
+      <div class="scrubhat-cyo__picker">
+        <h2>{{ section.settings.picker_heading }}</h2>
+        <div class="scrubhat-cyo__choices">
+          <a class="scrubhat-cyo__choice" href="{{ section.settings.hat_link | default: '/products/choose-your-own-fabric-scrub-hat' }}">
+            {%- if section.settings.hat_image != blank -%}
+              {{ section.settings.hat_image | image_url: width: 300, height: 300, crop: 'center' | image_tag: loading: 'lazy', alt: 'Scrub Hat' }}
+            {%- else -%}
+              <img src="{{ 'scrubhat-circle-1.png' | asset_url }}" alt="Scrub Hat" width="120" height="120" loading="lazy">
+            {%- endif -%}
+            <span>{{ section.settings.hat_label }}</span>
+          </a>
+          <a class="scrubhat-cyo__choice" href="{{ section.settings.pocket_link | default: '/products/copy-of-choose-your-own-fabric-pocket' }}">
+            {%- if section.settings.pocket_image != blank -%}
+              {{ section.settings.pocket_image | image_url: width: 300, height: 300, crop: 'center' | image_tag: loading: 'lazy', alt: 'Pocket' }}
+            {%- else -%}
+              <img src="{{ 'scrubhat-circle-2.png' | asset_url }}" alt="Pocket" width="120" height="120" loading="lazy">
+            {%- endif -%}
+            <span>{{ section.settings.pocket_label }}</span>
+          </a>
+        </div>
+      </div>
+      <figure class="scrubhat-cyo__example">
+        {%- if section.settings.example_image != blank -%}
+          {{ section.settings.example_image | image_url: width: 1000 | image_tag: loading: 'lazy', alt: section.settings.example_caption }}
+        {%- else -%}
+          <img src="{{ 'scrubhat-cyo-example.jpg' | asset_url }}" alt="{{ section.settings.example_caption | escape }}" width="500" height="312" loading="lazy">
+        {%- endif -%}
+        {%- if section.settings.example_caption != blank -%}
+          <figcaption>{{ section.settings.example_caption }}</figcaption>
+        {%- endif -%}
+      </figure>
+    </div>
+    <div>
+      <h1 class="scrubhat-cyo__title">{{ section.settings.title }}</h1>
+      <p class="scrubhat-cyo__price">
+        {{ section.settings.price }}
+        <small>{{ section.settings.price_note }}</small>
+      </p>
+      <p class="scrubhat-cyo__tax">Tax included. Shipping calculated at checkout.</p>
+      <div class="scrubhat-cyo__body">{{ section.settings.body }}</div>
+      <a href="{{ section.settings.cta_link | default: '/pages/contact-us' }}" class="scrubhat-cyo__cta">
+        {{ section.settings.cta_label }}
+      </a>
+      <p class="scrubhat-cyo__hint">{{ section.settings.hint }}</p>
+      {%- if section.settings.note != blank -%}
+        <div class="scrubhat-cyo__note"><strong>Please note:</strong> {{ section.settings.note }}</div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Scrubhat Choose Your Own",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "breadcrumb_label", "label": "Breadcrumb label", "default": "Choose Your Own Fabric" },
+    { "type": "text", "id": "picker_heading", "label": "Picker heading", "default": "What would you like?" },
+    { "type": "text", "id": "hat_label", "label": "Hat label", "default": "Scrub Hat" },
+    { "type": "url", "id": "hat_link", "label": "Hat link" },
+    { "type": "image_picker", "id": "hat_image", "label": "Hat image" },
+    { "type": "text", "id": "pocket_label", "label": "Pocket label", "default": "Pocket" },
+    { "type": "url", "id": "pocket_link", "label": "Pocket link" },
+    { "type": "image_picker", "id": "pocket_image", "label": "Pocket image" },
+    { "type": "image_picker", "id": "example_image", "label": "Example image" },
+    {
+      "type": "text",
+      "id": "example_caption",
+      "label": "Example caption",
+      "default": "Example: Colourful Dinosaurs Scrub Hat Cap — your fabric, our craft."
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Choose Your Own Fabric, Scrub Hat or Pocket"
+    },
+    { "type": "text", "id": "price", "label": "Price", "default": "£18.25" },
+    { "type": "text", "id": "price_note", "label": "Price note", "default": "Pockets and hats" },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body",
+      "default": "<h3>Choose your own fabric scrub hat or pocket</h3><p>Do you want a scrub hat or pocket, but none of our designs take your fancy?....then why not choose your own!</p><p>We work with a fabric supplier that has 100,000's of designs for you to choose from (some people say too many!)</p><p>Simply contact us with any ideas that you may have and we can point you to the site so that you can choose your fabric. Some patterns are too large for our hats so we will take a look and let you know if your chosen pattern is suitable before you order.</p>"
+    },
+    { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Contact Us to Get Started" },
+    { "type": "url", "id": "cta_link", "label": "CTA link" },
+    {
+      "type": "text",
+      "id": "hint",
+      "label": "Hint under CTA",
+      "default": "Select a Scrub Hat or Pocket above, then contact us."
+    },
+    {
+      "type": "text",
+      "id": "note",
+      "label": "Note text",
+      "default": "Some patterns may be too large for our hats. We will review your choice and confirm suitability before you place your order."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scrubhat Choose Your Own"
+    }
+  ]
+}
+{% endschema %}

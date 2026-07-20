@@ -24,13 +24,6 @@
             "swatch_shape": "circle"
           }
         },
-        "more_sizes": {
-          "type": "text",
-          "settings": {
-            "text": "Message us for more sizes",
-            "text_style": "subtitle"
-          }
-        },
         "quantity_selector": {
           "type": "quantity_selector",
           "settings": {}
@@ -88,7 +81,6 @@
         "title",
         "price",
         "variant_picker",
-        "more_sizes",
         "quantity_selector",
         "customiser",
         "buy_buttons",

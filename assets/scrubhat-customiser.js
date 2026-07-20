@@ -36,6 +36,20 @@
     ['Fuschia', '#EB5B9C']
   ];
 
+  var SATIN_PALETTE = [
+    ['Black', '#050505'],
+    ['Grey', '#524F50'],
+    ['Green', '#13703B'],
+    ['Hot Pink', '#E82A82'],
+    ['Chocolate', '#422812'],
+    ['Baby Pink', '#F5879A'],
+    ['Light blue', '#B0BDF5'],
+    ['Orange', '#F72F07'],
+    ['Purple', '#3A0C47'],
+    ['Red', '#D40418'],
+    ['Blue', '#0842BF']
+  ];
+
   var EMOJI_RE = /(?:[\u2190-\u2BFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|\uFE0F|\u200D)/g;
 
   function init() {
@@ -81,8 +95,8 @@
     });
 
     /* ---------- swatches ---------- */
-    function buildSwatches(container, onSelect) {
-      PALETTE.forEach(function (entry) {
+    function buildSwatches(container, onSelect, palette) {
+      (palette || PALETTE).forEach(function (entry) {
         var b = document.createElement('button');
         b.type = 'button';
         b.className = 'scrubhat-customiser__swatch';
@@ -115,11 +129,15 @@
 
     var satinContainer = root.querySelector('[data-swatches="satin"]');
     if (satinContainer) {
-      buildSwatches(satinContainer, function (name) {
-        state.satinColour = name;
-        var label = root.querySelector('[data-selected-label="satin"]');
-        if (label) label.textContent = 'Satin colour: ' + name;
-      });
+      buildSwatches(
+        satinContainer,
+        function (name) {
+          state.satinColour = name;
+          var label = root.querySelector('[data-selected-label="satin"]');
+          if (label) label.textContent = 'Satin colour: ' + name;
+        },
+        SATIN_PALETTE
+      );
     }
 
     /* ---------- placement ---------- */

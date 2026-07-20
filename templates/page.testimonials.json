@@ -1,0 +1,63 @@
+{
+  "sections": {
+    "reviews": {
+      "type": "scrubhat-reviews",
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "color": "pink",
+            "title": "Love the pattern!",
+            "text": "I love this pattern! It fits like a standard surgeons cap but I can tuck my hair in too. So many people at work have asked where I've gotten this. I'm spreading the word and will definitely be buying more in the future",
+            "author": "Happy customer"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "color": "mint",
+            "title": "Wonderful scrub cap!",
+            "text": "Wonderful scrub cap. Great quality and value. Had to choose a pug pattern! Thank you",
+            "author": "Pug approved 🐾"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "color": "mint",
+            "title": "Fantastic quality hats!",
+            "text": "Fantastic quality hats with excellent customer care. The whole department is wearing them! Would highly recommend and I will definitely order future scrub caps from this business.",
+            "author": "The whole team"
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "color": "pink",
+            "title": "Amazing customer service!",
+            "text": "Sarah is great, not only did she keep me updated on the delivery of the bag, but she also helped me out with questions when I asked her what I may need starting my new job as a VCA! Amazing customer service. Love the bag, it's adorable.",
+            "author": "New VCA student"
+          }
+        }
+      },
+      "block_order": ["review_1", "review_2", "review_3", "review_4"],
+      "settings": {
+        "badge": "Verified Reviews 🧢",
+        "heading": "Our customers say",
+        "subtext": "Don't just take our word for it — hear from our happy customers!"
+      }
+    },
+    "hero": {
+      "type": "scrubhat-hero",
+      "settings": {
+        "heading": "Browse our <em>colourful<\/em> selection of Scrub hats",
+        "subtext": "- Or you can choose your own fabric",
+        "button_label": "Browse",
+        "button_link": "\/collections\/hats",
+        "button_2_label": "Sale",
+        "button_2_link": "\/collections\/sale"
+      }
+    }
+  },
+  "order": ["reviews", "hero"]
+}
