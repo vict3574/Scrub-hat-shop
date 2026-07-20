@@ -9,22 +9,43 @@
             "custom_liquid": "<img src=\"{{ 'scrubhat-stars-row.svg' | asset_url }}\" alt=\"Reviews\" class=\"scrubhat-product-stars\" width=\"167\" height=\"26\">"
           }
         },
-        "title": { "type": "title", "settings": {} },
-        "price": { "type": "price", "settings": {} },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
         "variant_picker": {
           "type": "variant_picker",
-          "settings": { "picker_type": "button", "swatch_shape": "circle" }
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
         },
         "more_sizes": {
           "type": "text",
-          "settings": { "text": "Message us for more sizes", "text_style": "subtitle" }
+          "settings": {
+            "text": "Message us for more sizes",
+            "text_style": "subtitle"
+          }
         },
-        "quantity_selector": { "type": "quantity_selector", "settings": {} },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
         "buy_buttons": {
           "type": "buy_buttons",
-          "settings": { "show_dynamic_checkout": true, "show_gift_card_recipient": true }
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
         },
-        "description": { "type": "description", "settings": {} },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
         "usp_icons": {
           "type": "custom_liquid",
           "settings": {
@@ -36,7 +57,7 @@
           "settings": {
             "heading": "Sizing",
             "icon": "none",
-            "content": "<p>Standard- Suitable for people with<br\/>- No hair<br\/>- Short hair<br\/>- Medium hair<br\/>- Long, fine hair<\/p><p>XL- Suitable for people with<br\/>- Really long hair<br\/>- Thick or curly hair<br\/>- Afro, braids or dreadlocks (satin lining add-on recommended)<br\/>- Large claw clips<\/p><p>If you are unsure go for our standard size- they are still quite roomy!<\/p>"
+            "content": "<p>Standard- Suitable for people with<br/>- No hair<br/>- Short hair<br/>- Medium hair<br/>- Long, fine hair</p><p>XL- Suitable for people with<br/>- Really long hair<br/>- Thick or curly hair<br/>- Afro, braids or dreadlocks (satin lining add-on recommended)<br/>- Large claw clips</p><p>If you are unsure go for our standard size- they are still quite roomy!</p>"
           }
         },
         "tab_embroidery": {
@@ -44,7 +65,7 @@
           "settings": {
             "heading": "Embroidery",
             "icon": "none",
-            "content": "<p>For embroidery, buttons or satin lining options please select your hat then add the additional relevant listing to your basket.<\/p>"
+            "content": "<p>For embroidery, buttons or satin lining options please select your hat then add the additional relevant listing to your basket.</p>"
           }
         },
         "tab_shipping": {
@@ -52,7 +73,13 @@
           "settings": {
             "heading": "Shipping",
             "icon": "none",
-            "content": "<p>All our hats and pockets are dispatched in 2nd class standard post. We highly recommend upgrading your shipping with tracking if you live outside the UK.<\/p>"
+            "content": "<p>All our hats and pockets are dispatched in 2nd class standard post. We highly recommend upgrading your shipping with tracking if you live outside the UK.</p>"
+          }
+        },
+        "customiser": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'scrubhat-customiser', product: product %}"
           }
         }
       },
@@ -63,6 +90,7 @@
         "variant_picker",
         "more_sizes",
         "quantity_selector",
+        "customiser",
         "buy_buttons",
         "description",
         "usp_icons",
@@ -71,9 +99,6 @@
         "tab_shipping"
       ],
       "settings": {
-        "customiser_buttons": "add-buttons-1",
-        "customiser_satin": "satin-linings",
-        "customiser_embroidery": "embroidery",
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
         "media_size": "large",
@@ -92,14 +117,57 @@
     "features": {
       "type": "scrubhat-features",
       "blocks": {
-        "feature_1": { "type": "feature", "settings": { "icon": "brush", "title": "Colourful patterns" } },
-        "feature_2": { "type": "feature", "settings": { "icon": "hands", "title": "Always handmade" } },
-        "feature_3": { "type": "feature", "settings": { "icon": "globe", "title": "100% sustainable cotton" } },
-        "feature_4": { "type": "feature", "settings": { "icon": "feather", "title": "Comfortably lightweight" } },
-        "feature_5": { "type": "feature", "settings": { "icon": "crown", "title": "Suitable for all" } },
-        "feature_6": { "type": "feature", "settings": { "icon": "gift", "title": "Great as a gift" } }
+        "feature_1": {
+          "type": "feature",
+          "settings": {
+            "icon": "brush",
+            "title": "Colourful patterns"
+          }
+        },
+        "feature_2": {
+          "type": "feature",
+          "settings": {
+            "icon": "hands",
+            "title": "Always handmade"
+          }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": {
+            "icon": "globe",
+            "title": "100% sustainable cotton"
+          }
+        },
+        "feature_4": {
+          "type": "feature",
+          "settings": {
+            "icon": "feather",
+            "title": "Comfortably lightweight"
+          }
+        },
+        "feature_5": {
+          "type": "feature",
+          "settings": {
+            "icon": "crown",
+            "title": "Suitable for all"
+          }
+        },
+        "feature_6": {
+          "type": "feature",
+          "settings": {
+            "icon": "gift",
+            "title": "Great as a gift"
+          }
+        }
       },
-      "block_order": ["feature_1", "feature_2", "feature_3", "feature_4", "feature_5", "feature_6"],
+      "block_order": [
+        "feature_1",
+        "feature_2",
+        "feature_3",
+        "feature_4",
+        "feature_5",
+        "feature_6"
+      ],
       "settings": {
         "heading": "We care for our products, you and the planet",
         "subtext": "- And therefore, all of our products are made with that in mind."
@@ -145,12 +213,20 @@
           }
         }
       },
-      "block_order": ["testimonial_1", "testimonial_2"],
+      "block_order": [
+        "testimonial_1",
+        "testimonial_2"
+      ],
       "settings": {
         "heading": "Our customers say",
         "show_dog": true
       }
     }
   },
-  "order": ["main", "features", "related-products", "testimonials"]
+  "order": [
+    "main",
+    "features",
+    "related-products",
+    "testimonials"
+  ]
 }
