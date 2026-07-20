@@ -14,6 +14,17 @@
   {%- if c.handle == 'sale' -%}{%- assign sh_is_sale = true -%}{%- endif -%}
 {%- endfor -%}
 
+{%- comment -%} Fall back to the known add-on products when no theme settings are set {%- endcomment -%}
+{%- if buttons_product == blank -%}
+  {%- assign buttons_product = all_products['add-buttons-1'] -%}
+{%- endif -%}
+{%- if satin_product == blank -%}
+  {%- assign satin_product = all_products['satin-linings'] -%}
+{%- endif -%}
+{%- if embroidery_product == blank -%}
+  {%- assign embroidery_product = all_products['embroidery'] -%}
+{%- endif -%}
+
 {%- if sh_is_hat -%}
   {%- assign show_satin = false -%}
   {%- if satin_product != blank and sh_is_sale == false -%}
