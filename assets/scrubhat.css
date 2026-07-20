@@ -50,6 +50,10 @@ h1, h2, h3, .h0, .h1, .h2, .h3,
 .button:not(.shopify-payment-button__button):not(.scrubhat-newsletter__submit),
 .quick-add__submit,
 .customer button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   font-family: var(--sh-font-heading);
   font-weight: 400;
   font-size: 1.8rem;
