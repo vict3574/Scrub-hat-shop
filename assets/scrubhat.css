@@ -104,6 +104,16 @@ h1, h2, h3, .h0, .h1, .h2, .h3,
 .header-wrapper {
   background: #fff;
 }
+.header__heading-logo {
+  width: 230px;
+  max-width: 100%;
+  height: auto;
+}
+@media screen and (max-width: 749px) {
+  .header__heading-logo {
+    width: 175px;
+  }
+}
 .header__icon .icon,
 .header__icon .svg-wrapper svg {
   width: 2.3rem;
