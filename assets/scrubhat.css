@@ -202,15 +202,30 @@ h1, h2, h3, .h0, .h1, .h2, .h3,
 .scrubhat-hero__cta .button.scrubhat-hero__button--sale {
   background: #ffe6fe;
 }
+/* strokes at fixed natural size (204x53 svg), never stretched with the button row */
 .scrubhat-hero__sparkles {
+  display: none;
+}
+.scrubhat-hero__cta::before,
+.scrubhat-hero__cta::after {
+  content: '';
   position: absolute;
-  left: 50%;
+  width: 38px;
+  height: 53px;
   top: 50%;
-  transform: translate(-50%, -50%);
-  width: calc(100% + 76px);
-  max-width: none;
-  height: auto;
+  transform: translateY(-50%);
+  background-image: url('scrubhat-sparkles.svg');
+  background-size: 204px 53px;
+  background-repeat: no-repeat;
   pointer-events: none;
+}
+.scrubhat-hero__cta::before {
+  left: -48px;
+  background-position: left center;
+}
+.scrubhat-hero__cta::after {
+  right: -48px;
+  background-position: right center;
 }
 @media screen and (max-width: 749px) {
   .scrubhat-hero__cta {
