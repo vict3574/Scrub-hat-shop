@@ -181,17 +181,32 @@ h1, h2, h3, .h0, .h1, .h2, .h3,
 }
 .scrubhat-hero__cta {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+.scrubhat-hero__button--sale {
+  background: var(--sh-pink);
 }
 .scrubhat-hero__sparkles {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 204px;
+  width: calc(100% + 76px);
   max-width: none;
   height: auto;
   pointer-events: none;
+}
+@media screen and (max-width: 749px) {
+  .scrubhat-hero__cta {
+    gap: 1.2rem;
+  }
+  .scrubhat-hero__cta .button {
+    font-size: 1.5rem;
+    min-height: 4rem;
+    padding: 0 1.8rem;
+  }
 }
 .scrubhat-hero__image {
   justify-self: end;

@@ -23,6 +23,14 @@
           <a href="{{ section.settings.button_link | default: routes.all_products_collection_url }}" class="button">
             {{ section.settings.button_label }}
           </a>
+          {%- if section.settings.button_2_label != blank -%}
+            <a
+              href="{{ section.settings.button_2_link | default: '/collections/sale' }}"
+              class="button scrubhat-hero__button--sale"
+            >
+              {{ section.settings.button_2_label }}
+            </a>
+          {%- endif -%}
         </div>
       {%- endif -%}
     </div>
@@ -71,6 +79,17 @@
       "type": "url",
       "id": "button_link",
       "label": "Button link"
+    },
+    {
+      "type": "text",
+      "id": "button_2_label",
+      "label": "Second button label",
+      "default": "Sale"
+    },
+    {
+      "type": "url",
+      "id": "button_2_link",
+      "label": "Second button link"
     },
     {
       "type": "image_picker",

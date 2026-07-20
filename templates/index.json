@@ -6,7 +6,9 @@
         "heading": "Browse our <em>colourful</em> selection of Scrub hats",
         "subtext": "- Or you can choose your own fabric",
         "button_label": "Browse",
-        "button_link": "shopify:\/\/collections\/all"
+        "button_link": "shopify:\/\/collections\/all",
+        "button_2_label": "Sale",
+        "button_2_link": "\/collections\/sale"
       }
     },
     "collection_circles": {
