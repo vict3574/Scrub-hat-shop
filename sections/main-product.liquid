@@ -507,6 +507,14 @@
                     product_form_id: product_form_id
                   %}
                 {%- when 'buy_buttons' -%}
+                  {%- render 'scrubhat-customiser',
+                    product: product,
+                    buttons_product: section.settings.customiser_buttons,
+                    satin_product: section.settings.customiser_satin,
+                    embroidery_product: section.settings.customiser_embroidery,
+                    front_image: section.settings.customiser_front_img,
+                    side_image: section.settings.customiser_side_img
+                  -%}
                   {%- render 'buy-buttons',
                     block: block,
                     product: product,
@@ -2162,6 +2170,35 @@
     }
   ],
   "settings": [
+    {
+      "type": "header",
+      "content": "Scrubhat customiser (hats collection only)"
+    },
+    {
+      "type": "product",
+      "id": "customiser_buttons",
+      "label": "Buttons add-on product"
+    },
+    {
+      "type": "product",
+      "id": "customiser_satin",
+      "label": "Satin lining add-on product"
+    },
+    {
+      "type": "product",
+      "id": "customiser_embroidery",
+      "label": "Embroidery add-on product"
+    },
+    {
+      "type": "image_picker",
+      "id": "customiser_front_img",
+      "label": "Embroidery placement image: Front"
+    },
+    {
+      "type": "image_picker",
+      "id": "customiser_side_img",
+      "label": "Embroidery placement image: Side"
+    },
     {
       "type": "checkbox",
       "id": "enable_sticky_info",

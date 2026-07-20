@@ -1,0 +1,154 @@
+{% comment %}
+  Scrub Hat Shop customiser (TeeInBlue replacement).
+  Renders ONLY for products in the "hats" collection.
+  Satin lining is hidden for products that are also in the "sale" collection.
+  Add-ons are hidden companion products added to the cart alongside the hat;
+  all choices are stored as line item properties so they appear on the order,
+  the confirmation email and packing slips.
+{% endcomment %}
+
+{%- assign sh_is_hat = false -%}
+{%- assign sh_is_sale = false -%}
+{%- for c in product.collections -%}
+  {%- if c.handle == 'hats' -%}{%- assign sh_is_hat = true -%}{%- endif -%}
+  {%- if c.handle == 'sale' -%}{%- assign sh_is_sale = true -%}{%- endif -%}
+{%- endfor -%}
+
+{%- if sh_is_hat -%}
+  {%- assign show_satin = false -%}
+  {%- if satin_product != blank and sh_is_sale == false -%}
+    {%- assign show_satin = true -%}
+  {%- endif -%}
+
+  <div
+    class="scrubhat-customiser"
+    id="ScrubhatCustomiser-{{ product.id }}"
+    data-product-title="{{ product.title | escape }}"
+  >
+    <h3 class="scrubhat-customiser__title">Customise your hat</h3>
+
+    {%- if buttons_product != blank -%}
+      <div class="scrubhat-customiser__group" data-addon="buttons">
+        <p class="scrubhat-customiser__label">Would you like buttons?</p>
+        <div class="scrubhat-customiser__pills" role="radiogroup" aria-label="Buttons">
+          <button type="button" class="scrubhat-customiser__pill is-selected" data-value="no">No</button>
+          <button type="button" class="scrubhat-customiser__pill" data-value="yes">
+            Yes (+{{ buttons_product.selected_or_first_available_variant.price | money }})
+          </button>
+        </div>
+      </div>
+    {%- endif -%}
+
+    {%- if show_satin -%}
+      <div class="scrubhat-customiser__group" data-addon="satin">
+        <p class="scrubhat-customiser__label">Would you like a satin lining?</p>
+        <div class="scrubhat-customiser__pills" role="radiogroup" aria-label="Satin lining">
+          <button type="button" class="scrubhat-customiser__pill is-selected" data-value="no">No</button>
+          <button type="button" class="scrubhat-customiser__pill" data-value="yes">
+            Yes (+{{ satin_product.selected_or_first_available_variant.price | money }})
+          </button>
+        </div>
+        <div class="scrubhat-customiser__reveal" data-reveal="satin" hidden>
+          <p class="scrubhat-customiser__sublabel">
+            Satin colour <span class="scrubhat-customiser__req">*</span>
+          </p>
+          <div class="scrubhat-customiser__swatches" data-swatches="satin"></div>
+          <p class="scrubhat-customiser__hint" data-selected-label="satin"></p>
+          <div class="scrubhat-customiser__notice">
+            Satin lined hats are custom made to order and can take 1 day to 3 weeks.
+          </div>
+        </div>
+      </div>
+    {%- endif -%}
+
+    {%- if embroidery_product != blank -%}
+      <div class="scrubhat-customiser__group" data-addon="embroidery">
+        <p class="scrubhat-customiser__label">Add personalised embroidery?</p>
+        <div class="scrubhat-customiser__pills" role="radiogroup" aria-label="Embroidery">
+          <button type="button" class="scrubhat-customiser__pill is-selected" data-value="no">No</button>
+          <button type="button" class="scrubhat-customiser__pill" data-value="yes">
+            Yes (+{{ embroidery_product.selected_or_first_available_variant.price | money }})
+          </button>
+        </div>
+        <div class="scrubhat-customiser__reveal" data-reveal="embroidery" hidden>
+          <p class="scrubhat-customiser__sublabel">
+            Embroidery placement <span class="scrubhat-customiser__req">*</span>
+          </p>
+          <div class="scrubhat-customiser__placements">
+            <button type="button" class="scrubhat-customiser__placement is-selected" data-placement="Side">
+              {%- if side_image != blank -%}
+                {{ side_image | image_url: width: 120 | image_tag: alt: 'Side placement', loading: 'lazy' }}
+              {%- endif -%}
+              <span>Side</span>
+            </button>
+            <button type="button" class="scrubhat-customiser__placement" data-placement="Front">
+              {%- if front_image != blank -%}
+                {{ front_image | image_url: width: 120 | image_tag: alt: 'Front placement', loading: 'lazy' }}
+              {%- endif -%}
+              <span>Front</span>
+            </button>
+          </div>
+          <p class="scrubhat-customiser__hint">
+            Preview shows placement on the side. If you choose Front, your text will be embroidered on the front of
+            the hat.
+          </p>
+          <p class="scrubhat-customiser__sublabel">
+            Thread colour <span class="scrubhat-customiser__req">*</span>
+          </p>
+          <div class="scrubhat-customiser__swatches" data-swatches="thread"></div>
+          <p class="scrubhat-customiser__hint" data-selected-label="thread">Choose colour for thread</p>
+          <div class="scrubhat-customiser__lines">
+            <label>
+              <span>Line #1 <span class="scrubhat-customiser__req">*</span></span>
+              <input type="text" data-line="1" autocomplete="off">
+              <small>Cannot support emojis</small>
+            </label>
+            <label>
+              <span>Line #2</span>
+              <input type="text" data-line="2" autocomplete="off">
+              <small>Cannot support emojis</small>
+            </label>
+            <label>
+              <span>Line #3</span>
+              <input type="text" data-line="3" autocomplete="off">
+              <small>Cannot support emojis</small>
+            </label>
+          </div>
+        </div>
+      </div>
+    {%- endif -%}
+
+    <p class="scrubhat-customiser__error" data-customiser-error hidden></p>
+
+    <script type="application/json" data-customiser-config>
+      {
+        "productTitle": {{ product.title | json }},
+        "addons": {
+          "buttons": {%- if buttons_product != blank -%}
+            {
+              "variantId": {{ buttons_product.selected_or_first_available_variant.id | json }},
+              "title": {{ buttons_product.title | json }},
+              "available": {{ buttons_product.selected_or_first_available_variant.available | json }}
+            }
+          {%- else -%}null{%- endif -%},
+          "satin": {%- if show_satin -%}
+            {
+              "variantId": {{ satin_product.selected_or_first_available_variant.id | json }},
+              "title": {{ satin_product.title | json }},
+              "available": {{ satin_product.selected_or_first_available_variant.available | json }}
+            }
+          {%- else -%}null{%- endif -%},
+          "embroidery": {%- if embroidery_product != blank -%}
+            {
+              "variantId": {{ embroidery_product.selected_or_first_available_variant.id | json }},
+              "title": {{ embroidery_product.title | json }},
+              "available": {{ embroidery_product.selected_or_first_available_variant.available | json }}
+            }
+          {%- else -%}null{%- endif -%}
+        }
+      }
+    </script>
+  </div>
+
+  <script src="{{ 'scrubhat-customiser.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}

@@ -87,7 +87,10 @@
         "hide_variants": false,
         "enable_video_looping": false,
         "padding_top": 36,
-        "padding_bottom": 12
+        "padding_bottom": 12,
+        "customiser_buttons": "add-buttons-1",
+        "customiser_satin": "satin-linings",
+        "customiser_embroidery": "embroidery"
       }
     },
     "features": {
