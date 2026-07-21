@@ -109,13 +109,13 @@ h1, h2, h3, .h0, .h1, .h2, .h3,
   background: #fff;
 }
 .header__heading-logo {
-  width: 230px;
+  width: 290px;
   max-width: 100%;
   height: auto;
 }
 @media screen and (max-width: 749px) {
   .header__heading-logo {
-    width: 175px;
+    width: 220px;
   }
 }
 .header__icon .icon,
