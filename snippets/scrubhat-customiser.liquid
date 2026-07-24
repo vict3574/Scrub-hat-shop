@@ -13,6 +13,13 @@
   {%- if c.handle == 'hats' -%}{%- assign sh_is_hat = true -%}{%- endif -%}
   {%- if c.handle == 'sale' -%}{%- assign sh_is_sale = true -%}{%- endif -%}
 {%- endfor -%}
+{%- comment -%}
+  Always show the customiser on the "Choose Your Own Fabric" hat, even if it
+  hasn't been tagged into the Hats collection.
+{%- endcomment -%}
+{%- if product.handle == 'choose-your-own-fabric-scrub-hat' -%}
+  {%- assign sh_is_hat = true -%}
+{%- endif -%}
 
 {%- comment -%} Fall back to the known add-on products when no theme settings are set {%- endcomment -%}
 {%- if buttons_product == blank -%}
