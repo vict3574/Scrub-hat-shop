@@ -82,8 +82,12 @@
 
               <tbody>
                 {%- for item in cart.items -%}
+                  {%- assign sh_is_addon = false -%}
+                  {%- if item.properties['_addon'] == 'yes' -%}
+                    {%- assign sh_is_addon = true -%}
+                  {%- endif -%}
                   <tr
-                    class="cart-item {% if item.parent_relationship.parent != null %}cart-item__nested-line{% endif %}"
+                    class="cart-item {% if item.parent_relationship.parent != null %}cart-item__nested-line{% endif %}{% if sh_is_addon %} scrubhat-addon-line{% endif %}"
                     id="CartItem-{{ item.index | plus: 1 }}"
                     {% if item.parent_relationship.parent != null %}
                       aria-label="{{- 'products.product.nested_label' | t: title: item.product.title, parent_title: item.parent_relationship.parent.title | escape -}}"
@@ -119,6 +123,11 @@
                           modal_id: cart_disclosure_modal_id
                         -%}
                       </div>
+                      {%- if sh_is_addon -%}
+                        <p class="caption scrubhat-addon-note">
+                          Included with {{ item.properties['For'] | default: 'your hat' }} — can't be removed separately
+                        </p>
+                      {%- endif -%}
 
                       {%- if item.original_price != item.final_price -%}
                         <div class="cart-item__discounted-prices">
@@ -247,6 +256,7 @@
                             {%- endif -%}
                             <quantity-input class="quantity cart-quantity">
                               {% assign can_update_quantity = item.instructions.can_update_quantity | default: true %}
+                              {% if sh_is_addon %}{% assign can_update_quantity = false %}{% endif %}
                               <button
                                 class="quantity__button"
                                 name="minus"
@@ -306,6 +316,7 @@
                             id="Remove-{{ item.index | plus: 1 }}"
                             data-index="{{ item.index | plus: 1 }}"
                             {% assign can_remove = item.instructions.can_remove | default: true %}
+                            {% if sh_is_addon %}{% assign can_remove = false %}{% endif %}
                             {% if can_remove == false %}
                               class="hidden"
                             {% endif %}

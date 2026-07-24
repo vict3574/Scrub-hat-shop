@@ -120,9 +120,13 @@
 
                   <tbody role="rowgroup">
                     {%- for item in cart.items -%}
+                      {%- assign sh_is_addon = false -%}
+                      {%- if item.properties['_addon'] == 'yes' -%}
+                        {%- assign sh_is_addon = true -%}
+                      {%- endif -%}
                       <tr
                         id="CartDrawer-Item-{{ item.index | plus: 1 }}"
-                        class="cart-item{% if item.parent_relationship.parent != null %} cart-item__nested-line{% endif %}"
+                        class="cart-item{% if item.parent_relationship.parent != null %} cart-item__nested-line{% endif %}{% if sh_is_addon %} scrubhat-addon-line{% endif %}"
                         role="row"
                         {% if item.parent_relationship.parent != null %}
                           aria-label="{{- 'products.product.nested_label' | t: title: item.product.title, parent_title: item.parent_relationship.parent.title | escape -}}"
@@ -162,6 +166,11 @@
                               modal_id: cart_disclosure_modal_id
                             -%}
                           </div>
+                          {%- if sh_is_addon -%}
+                            <p class="caption scrubhat-addon-note">
+                              Included with {{ item.properties['For'] | default: 'your hat' }} — can't be removed separately
+                            </p>
+                          {%- endif -%}
 
                           {%- if item.original_price != item.final_price -%}
                             <div class="cart-item__discounted-prices">
@@ -298,7 +307,7 @@
                                     class="quantity__button"
                                     name="minus"
                                     type="button"
-                                    {% if item.instructions and item.instructions.can_update_quantity == false %}
+                                    {% if sh_is_addon or (item.instructions and item.instructions.can_update_quantity == false) %}
                                       disabled
                                     {% endif %}
                                   >
@@ -332,7 +341,7 @@
                                     aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
                                     id="Drawer-quantity-{{ item.index | plus: 1 }}"
                                     data-index="{{ item.index | plus: 1 }}"
-                                    {% if item.instructions and item.instructions.can_update_quantity == false %}
+                                    {% if sh_is_addon or (item.instructions and item.instructions.can_update_quantity == false) %}
                                       disabled
                                     {% endif %}
                                   >
@@ -340,7 +349,7 @@
                                     class="quantity__button"
                                     name="plus"
                                     type="button"
-                                    {% if item.instructions and item.instructions.can_update_quantity == false %}
+                                    {% if sh_is_addon or (item.instructions and item.instructions.can_update_quantity == false) %}
                                       disabled
                                     {% endif %}
                                   >
@@ -366,7 +375,7 @@
                                   class="button button--tertiary cart-remove-button"
                                   aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
                                   data-variant-id="{{ item.variant.id }}"
-                                  {% if item.instructions and item.instructions.can_remove == false %}
+                                  {% if sh_is_addon or (item.instructions and item.instructions.can_remove == false) %}
                                     class="hidden"
                                   {% endif %}
                                 >

@@ -1022,6 +1022,12 @@ variant-selects .product-form__input--pill input[type='radio'] + label,
   line-height: 1.5;
   margin-top: 1.2rem;
 }
+/* Cart / cart drawer: bundled add-on lines (buttons/satin/embroidery) */
+.scrubhat-addon-note {
+  color: #43786c;
+  font-size: 1.2rem;
+  margin: 0.2rem 0 0.6rem;
+}
 .scrubhat-customiser__swatches {
   display: flex;
   flex-wrap: wrap;

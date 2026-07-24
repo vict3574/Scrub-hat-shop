@@ -254,14 +254,18 @@
         items.push({
           id: config.addons.buttons.variantId,
           quantity: 1,
-          properties: { For: config.productTitle }
+          properties: { For: config.productTitle, _addon: 'yes' }
         });
       }
       if (state.satin === 'yes' && config.addons.satin) {
         items.push({
           id: config.addons.satin.variantId,
           quantity: 1,
-          properties: { For: config.productTitle, 'Satin colour': state.satinColour }
+          properties: {
+            For: config.productTitle,
+            'Satin colour': state.satinColour,
+            _addon: 'yes'
+          }
         });
       }
       if (state.embroidery === 'yes' && config.addons.embroidery) {
@@ -274,7 +278,8 @@
             'Thread colour': state.thread ? state.thread.name : '',
             'Line 1': state.lines[0] || '',
             'Line 2': state.lines[1] || '',
-            'Line 3': state.lines[2] || ''
+            'Line 3': state.lines[2] || '',
+            _addon: 'yes'
           }
         });
       }

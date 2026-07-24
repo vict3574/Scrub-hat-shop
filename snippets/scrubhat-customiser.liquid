@@ -32,10 +32,33 @@
   {%- assign embroidery_product = all_products['embroidery'] -%}
 {%- endif -%}
 
-{%- if sh_is_hat -%}
+{%- comment -%}
+  Manual per-product overrides via product tags (no code changes needed):
+  - "no-buttons"     hides the Buttons option on this product
+  - "no-satin"       hides the Satin lining option on this product
+  - "no-embroidery"  hides the Embroidery option on this product
+  - "no-customiser"  hides the whole customiser on this product
+{%- endcomment -%}
+{%- assign sh_tags = product.tags | join: '|' | downcase -%}
+{%- assign sh_hide_buttons = false -%}
+{%- assign sh_hide_satin = false -%}
+{%- assign sh_hide_embroidery = false -%}
+{%- assign sh_hide_all = false -%}
+{%- if sh_tags contains 'no-buttons' -%}{%- assign sh_hide_buttons = true -%}{%- endif -%}
+{%- if sh_tags contains 'no-satin' -%}{%- assign sh_hide_satin = true -%}{%- endif -%}
+{%- if sh_tags contains 'no-embroidery' -%}{%- assign sh_hide_embroidery = true -%}{%- endif -%}
+{%- if sh_tags contains 'no-customiser' -%}{%- assign sh_hide_all = true -%}{%- endif -%}
+
+{%- if sh_is_hat and sh_hide_all == false -%}
   {%- assign show_satin = false -%}
-  {%- if satin_product != blank and sh_is_sale == false -%}
+  {%- if satin_product != blank and sh_is_sale == false and sh_hide_satin == false -%}
     {%- assign show_satin = true -%}
+  {%- endif -%}
+  {%- if sh_hide_buttons -%}
+    {%- assign buttons_product = blank -%}
+  {%- endif -%}
+  {%- if sh_hide_embroidery -%}
+    {%- assign embroidery_product = blank -%}
   {%- endif -%}
 
   <div
