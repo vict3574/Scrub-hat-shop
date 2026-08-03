@@ -58,7 +58,7 @@
           "settings": {
             "heading": "Embroidery",
             "icon": "none",
-            "content": "<p>For embroidery, buttons or satin lining options please select your hat then add the additional relevant listing to your basket.</p>"
+            "content": "<p>Just choose your hat, then use the \"Customise your hat\" panel above the Add to cart button to add embroidery, buttons or a satin lining — no need to add anything separately.</p>"
           }
         },
         "tab_shipping": {
@@ -74,9 +74,16 @@
           "settings": {
             "custom_liquid": "{% render 'scrubhat-customiser', product: product %}"
           }
+        },
+        "addon_guard": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'scrubhat-addon-guard' %}"
+          }
         }
       },
       "block_order": [
+        "addon_guard",
         "stars",
         "title",
         "price",

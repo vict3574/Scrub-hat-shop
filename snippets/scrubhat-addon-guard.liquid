@@ -1,0 +1,24 @@
+{%- comment -%}
+  The "Add buttons", "Satin linings" and "Embroidery" products only exist so
+  the hat customiser can add them to the cart automatically alongside a hat.
+  They must never be bought on their own — if a customer lands on one of
+  these product pages directly (search, old link, etc.) and buys it there,
+  it goes into the cart with no connection to a hat and none of the
+  embroidery/satin details attached, which is exactly what caused order
+  #7412 to show "Embroidery" and "Satin linings" with no colour or text.
+  This hides the normal buy flow on those 3 pages and points the customer
+  back to the hats collection instead.
+{%- endcomment -%}
+{%- assign sh_addon_handles = 'add-buttons-1,satin-linings,embroidery' | split: ',' -%}
+{%- if sh_addon_handles contains product.handle -%}
+  <style>
+    .product { display: none !important; }
+  </style>
+  <div class="scrubhat-addon-guard">
+    <p>
+      This is an add-on for our scrub hat customisation options and isn't sold on its own.
+      Open one of our hats and use the "Customise your hat" panel to add embroidery, buttons, or a satin lining.
+    </p>
+    <a href="{{ routes.root_url }}collections/hats" class="button">Browse our hats</a>
+  </div>
+{%- endif -%}

@@ -1028,6 +1028,20 @@ variant-selects .product-form__input--pill input[type='radio'] + label,
   font-size: 1.2rem;
   margin: 0.2rem 0 0.6rem;
 }
+/* Blocks direct purchase of the internal buttons/satin/embroidery products */
+.scrubhat-addon-guard {
+  max-width: 60rem;
+  margin: 6rem auto;
+  padding: 0 2rem;
+  text-align: center;
+  font-family: var(--sh-font-body);
+  color: var(--sh-text);
+}
+.scrubhat-addon-guard p {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  margin: 0 0 2rem;
+}
 .scrubhat-customiser__swatches {
   display: flex;
   flex-wrap: wrap;
