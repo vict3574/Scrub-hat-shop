@@ -230,6 +230,10 @@
     /* ---------- properties ---------- */
     function hatProperties() {
       var props = {};
+      var fabricInput = document.querySelector('[name="properties[Fabric choice]"]');
+      if (fabricInput && fabricInput.value.trim()) {
+        props['Fabric choice'] = fabricInput.value.trim();
+      }
       if (config.addons.buttons) props['Buttons'] = state.buttons === 'yes' ? 'Yes' : 'No';
       if (config.addons.satin) {
         props['Satin lining'] = state.satin === 'yes' ? 'Yes' : 'No';

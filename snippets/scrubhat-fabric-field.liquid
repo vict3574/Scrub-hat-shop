@@ -1,0 +1,53 @@
+{% comment %}
+  Free-text field for "Choose Your Own Fabric" products (hat + pocket).
+  Lets the buyer specify which fabric/pattern they want, stored as a line
+  item property so it appears on the order, confirmation email and packing
+  slip. Required — the browser blocks add-to-cart until it's filled in.
+{% endcomment %}
+{{ 'scrubhat.css' | asset_url | stylesheet_tag }}
+{% style %}
+  .scrubhat-fabric-field {
+    margin: 1.6rem 0;
+  }
+  .scrubhat-fabric-field label {
+    display: block;
+    font-family: var(--sh-font-body);
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: #43786c;
+    margin-bottom: 0.6rem;
+  }
+  .scrubhat-fabric-field textarea {
+    width: 100%;
+    border: 1px solid #dce8e4;
+    border-radius: 8px;
+    padding: 1.1rem 1.4rem;
+    font-family: var(--sh-font-body);
+    font-size: 1.4rem;
+    color: var(--sh-text);
+    background: #fff;
+    box-sizing: border-box;
+    min-height: 7rem;
+    resize: vertical;
+  }
+  .scrubhat-fabric-field small {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+    color: #7a8a86;
+  }
+{% endstyle %}
+
+<div class="scrubhat-fabric-field">
+  <label for="ScrubhatFabric-{{ product.id }}">
+    Which fabric would you like? <span aria-hidden="true">*</span>
+  </label>
+  <textarea
+    id="ScrubhatFabric-{{ product.id }}"
+    name="properties[Fabric choice]"
+    form="product-form-{{ section.id }}"
+    required
+    placeholder="Tell us the fabric or pattern you'd like — e.g. a link to the design, or a description."
+  ></textarea>
+  <small>We'll confirm your fabric is suitable before your order is made.</small>
+</div>
