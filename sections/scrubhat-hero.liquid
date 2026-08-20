@@ -11,7 +11,7 @@
         <p class="scrubhat-hero__subtext">{{ section.settings.subtext }}</p>
       {%- endif -%}
       {%- if section.settings.button_label != blank -%}
-        <div class="scrubhat-hero__cta">
+        <div class="scrubhat-hero__cta scrubhat-hero__cta--desktop">
           <img
             src="{{ 'scrubhat-sparkles.svg' | asset_url }}"
             alt=""
@@ -22,6 +22,26 @@
           >
           <a href="{{ section.settings.button_link | default: routes.all_products_collection_url }}" class="button">
             {{ section.settings.button_label }}
+          </a>
+          {%- if section.settings.button_2_label != blank -%}
+            <a
+              href="{{ section.settings.button_2_link | default: '/collections/sale' }}"
+              class="button scrubhat-hero__button--sale"
+            >
+              {{ section.settings.button_2_label }}
+            </a>
+          {%- endif -%}
+        </div>
+        {%- comment -%}
+          Mobile: lead with Hats / Pockets / Sale instead of a single generic
+          Browse button, since that's how most orders come in on mobile.
+        {%- endcomment -%}
+        <div class="scrubhat-hero__cta scrubhat-hero__cta--mobile">
+          <a href="{{ section.settings.hats_button_link | default: '/collections/hats' }}" class="button">
+            {{ section.settings.hats_button_label }}
+          </a>
+          <a href="{{ section.settings.pockets_button_link | default: '/collections/pockets' }}" class="button">
+            {{ section.settings.pockets_button_label }}
           </a>
           {%- if section.settings.button_2_label != blank -%}
             <a
@@ -47,6 +67,13 @@
         >
       {%- endif -%}
     </div>
+    {%- if section.settings.button_label != blank -%}
+      <div class="scrubhat-hero__browse-more">
+        <a href="{{ section.settings.button_link | default: routes.all_products_collection_url }}" class="button">
+          {{ section.settings.button_label }}
+        </a>
+      </div>
+    {%- endif -%}
   </div>
 </div>
 
@@ -90,6 +117,34 @@
       "type": "url",
       "id": "button_2_link",
       "label": "Second button link"
+    },
+    {
+      "type": "header",
+      "content": "Mobile buttons"
+    },
+    {
+      "type": "text",
+      "id": "hats_button_label",
+      "label": "Hats button label",
+      "default": "Hats"
+    },
+    {
+      "type": "url",
+      "id": "hats_button_link",
+      "label": "Hats button link",
+      "info": "Defaults to /collections/hats"
+    },
+    {
+      "type": "text",
+      "id": "pockets_button_label",
+      "label": "Pockets button label",
+      "default": "Pockets"
+    },
+    {
+      "type": "url",
+      "id": "pockets_button_link",
+      "label": "Pockets button link",
+      "info": "Defaults to /collections/pockets"
     },
     {
       "type": "image_picker",

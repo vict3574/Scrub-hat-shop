@@ -20,6 +20,16 @@
 {%- if product.handle == 'choose-your-own-fabric-scrub-hat' -%}
   {%- assign sh_is_hat = true -%}
 {%- endif -%}
+{%- comment -%}
+  Also detect hats by product type. Sale-collection hats are tagged into
+  "sale" + "latest-products" but never actually added to the "hats"
+  collection, so relying on collection membership alone silently hid
+  embroidery/buttons on every hat in the Sale section.
+{%- endcomment -%}
+{%- assign sh_product_type = product.type | downcase -%}
+{%- if sh_product_type == 'hats' or sh_product_type == 'hat' -%}
+  {%- assign sh_is_hat = true -%}
+{%- endif -%}
 
 {%- comment -%} Fall back to the known add-on products when no theme settings are set {%- endcomment -%}
 {%- if buttons_product == blank -%}

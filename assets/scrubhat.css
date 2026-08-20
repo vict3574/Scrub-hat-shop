@@ -238,6 +238,36 @@ h1, h2, h3, .h0, .h1, .h2, .h3,
     padding: 0 1.8rem;
   }
 }
+/* Mobile leads with Hats / Pockets / Sale; desktop keeps Browse / Sale.
+   The plain "Browse all" button moves further down the mobile layout. */
+.scrubhat-hero__cta--mobile {
+  display: none;
+}
+.scrubhat-hero__browse-more {
+  display: none;
+}
+@media screen and (max-width: 749px) {
+  .scrubhat-hero__cta--desktop {
+    display: none;
+  }
+  .scrubhat-hero__cta--mobile {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .scrubhat-hero__browse-more {
+    display: block;
+    text-align: center;
+    margin-top: 2.4rem;
+  }
+  .scrubhat-hero__browse-more .button {
+    font-size: 1.4rem;
+    min-height: 3.6rem;
+    padding: 0 1.6rem;
+    background: transparent;
+    border: 1.5px solid var(--sh-ink);
+  }
+}
 .scrubhat-hero__image {
   justify-self: end;
   align-self: end;
