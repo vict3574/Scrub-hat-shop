@@ -122,7 +122,16 @@
                     {%- for item in cart.items -%}
                       {%- assign sh_is_addon = false -%}
                       {%- if item.properties['_addon'] == 'yes' -%}
-                        {%- assign sh_is_addon = true -%}
+                        {%- comment -%}
+                          Only lock the add-on line while its parent hat is
+                          still in the cart, otherwise the basket gets stuck.
+                        {%- endcomment -%}
+                        {%- assign sh_addon_for = item.properties['For'] -%}
+                        {%- for sh_parent in cart.items -%}
+                          {%- if sh_parent.properties['_addon'] != 'yes' and sh_parent.product.title == sh_addon_for -%}
+                            {%- assign sh_is_addon = true -%}
+                          {%- endif -%}
+                        {%- endfor -%}
                       {%- endif -%}
                       <tr
                         id="CartDrawer-Item-{{ item.index | plus: 1 }}"
