@@ -1,7 +1,42 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "name": "t:sections.header.name",
   "type": "header",
   "sections": {
+    "announcement_bar_9pTMDq": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement_tYyiWT": {
+          "type": "announcement",
+          "settings": {
+            "text": "We are taking a short break and will be back on Wednesday 9th September to pack your order",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement_tYyiWT"
+      ],
+      "custom_css": [],
+      "name": "t:sections.announcement-bar.presets.name",
+      "settings": {
+        "auto_rotate": true,
+        "change_slides_speed": 5,
+        "color_scheme": "",
+        "show_line_separator": true,
+        "show_social": false,
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
+    },
     "header": {
       "type": "header",
       "settings": {
@@ -22,5 +57,8 @@
       }
     }
   },
-  "order": ["header"]
+  "order": [
+    "announcement_bar_9pTMDq",
+    "header"
+  ]
 }
