@@ -25,6 +25,7 @@
       "block_order": [
         "announcement_tYyiWT"
       ],
+      "disabled": true,
       "custom_css": [],
       "name": "t:sections.announcement-bar.presets.name",
       "settings": {
