@@ -1,8 +1,23 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
       "type": "main-product",
       "blocks": {
+        "addon_guard": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'scrubhat-addon-guard' %}"
+          }
+        },
         "stars": {
           "type": "custom_liquid",
           "settings": {
@@ -28,6 +43,12 @@
           "type": "quantity_selector",
           "settings": {}
         },
+        "customiser": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'scrubhat-customiser', product: product %}"
+          }
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -50,7 +71,8 @@
           "settings": {
             "heading": "Sizing",
             "icon": "none",
-            "content": "<p>Standard- Suitable for people with<br/>- No hair<br/>- Short hair<br/>- Medium hair<br/>- Long, fine hair</p><p>XL- Suitable for people with<br/>- Really long hair<br/>- Thick or curly hair<br/>- Afro, braids or dreadlocks (satin lining add-on recommended)<br/>- Large claw clips</p><p>If you are unsure go for our standard size- they are still quite roomy!</p>"
+            "content": "<p>Standard- Suitable for people with<br/>- No hair<br/>- Short hair<br/>- Medium hair<br/>- Long, fine hair</p><p>XL- Suitable for people with<br/>- Really long hair<br/>- Thick or curly hair<br/>- Afro, braids or dreadlocks (satin lining add-on recommended)<br/>- Large claw clips</p><p>If you are unsure go for our standard size- they are still quite roomy!</p>",
+            "page": ""
           }
         },
         "tab_embroidery": {
@@ -58,7 +80,8 @@
           "settings": {
             "heading": "Embroidery",
             "icon": "none",
-            "content": "<p>Just choose your hat, then use the \"Customise your hat\" panel above the Add to cart button to add embroidery, buttons or a satin lining — no need to add anything separately.</p>"
+            "content": "<p>Just choose your hat, then use the \"Customise your hat\" panel above the Add to cart button to add embroidery, buttons or a satin lining — no need to add anything separately.</p>",
+            "page": ""
           }
         },
         "tab_shipping": {
@@ -66,19 +89,14 @@
           "settings": {
             "heading": "Shipping",
             "icon": "none",
-            "content": "<p>All our hats and pockets are dispatched in 2nd class standard post. We highly recommend upgrading your shipping with tracking if you live outside the UK.</p>"
+            "content": "<p>All our hats and pockets are dispatched in 2nd class standard post. We highly recommend upgrading your shipping with tracking if you live outside the UK.</p>",
+            "page": ""
           }
         },
-        "customiser": {
-          "type": "custom_liquid",
+        "yuko_order_limits_order_limit_product_message_VLxABT": {
+          "type": "shopify://apps/yuko-order-limits/blocks/order-limit-product-message/52f9f134-3e39-4eea-b253-74233a4918d4",
           "settings": {
-            "custom_liquid": "{% render 'scrubhat-customiser', product: product %}"
-          }
-        },
-        "addon_guard": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "{% render 'scrubhat-addon-guard' %}"
+            "custom_javascript": ""
           }
         }
       },
@@ -95,7 +113,8 @@
         "usp_icons",
         "tab_sizing",
         "tab_embroidery",
-        "tab_shipping"
+        "tab_shipping",
+        "yuko_order_limits_order_limit_product_message_VLxABT"
       ],
       "settings": {
         "enable_sticky_info": true,
