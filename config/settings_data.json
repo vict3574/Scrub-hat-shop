@@ -147,6 +147,13 @@
         "type": "shopify://apps/forms/blocks/forms/8744a304-fcb1-4347-b211-bb6b4759a76a",
         "disabled": false,
         "settings": {}
+      },
+      "1607042082102552966": {
+        "type": "shopify://apps/yuko-order-limits/blocks/order-limit-embed/52f9f134-3e39-4eea-b253-74233a4918d4",
+        "disabled": false,
+        "settings": {
+          "custom_javascript": ""
+        }
       }
     },
     "color_schemes": {
@@ -185,7 +192,7 @@
       },
       "scheme-4": {
         "settings": {
-          "background": "#FF0000",
+          "background": "#ff0000",
           "background_gradient": "",
           "text": "#ffffff",
           "button": "#ffffff",
